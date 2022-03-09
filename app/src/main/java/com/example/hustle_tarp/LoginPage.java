@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,15 +25,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class LoginPage extends AppCompatActivity {
-
+    ProgressBar p;
     FirebaseAuth firebaseAuth;
     String email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        p=findViewById(R.id.progressBarLoginPage);
         firebaseAuth = FirebaseAuth.getInstance();
-
+        p.setVisibility(View.INVISIBLE);
     }
 
     void login(String email,String password){
@@ -52,7 +54,6 @@ public class LoginPage extends AppCompatActivity {
                         FirebaseUser u = firebaseAuth.getCurrentUser();
                         if (u != null) {
                             Toast.makeText(LoginPage.this, "here", Toast.LENGTH_SHORT).show();
-
                             FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Workers").child(u.getUid()).
                                     get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
@@ -65,7 +66,7 @@ public class LoginPage extends AppCompatActivity {
                                     Toast.makeText(LoginPage.this, ""+e.getName(), Toast.LENGTH_SHORT).show();
                                     if(e.getStatus().equals("Employee")){
                                         finish();
-                                        startActivity(new Intent(getApplicationContext(), bottomNavigationPage.class));
+                                        startActivity(new Intent(getApplicationContext(), employeeLandingPage.class));
                                     }
 
                                 }
@@ -79,6 +80,7 @@ public class LoginPage extends AppCompatActivity {
                                 .setMessage("Invalid login credentials. Please check your credentials and try again.")
                                 .setPositiveButton("Yes",null)
                                 .show();
+                        p.setVisibility(View.INVISIBLE);
                     }
                 }
             });
