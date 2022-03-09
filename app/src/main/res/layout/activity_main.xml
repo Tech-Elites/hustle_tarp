@@ -10,7 +10,7 @@
         android:textColor="@color/white"
         android:text="Hello World :)"
         android:layout_centerInParent="true"
-        app:buttonColor="@color/colorPrimary"
+        app:buttonColor="@color/black"
         app:unpressedGlowSize="20dp"
         app:pressedGlowSize="25dp"
         app:glowColor="@color/colorPrimary"
