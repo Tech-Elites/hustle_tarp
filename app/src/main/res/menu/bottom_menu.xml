@@ -6,15 +6,16 @@
         android:icon="@drawable/feed_page_icon"
         android:title="Feed" />
     <item
-        android:id="@+id/newIssuePage"
-        android:icon="@drawable/new_issue_icon"
-        android:title="New Issue" />
-    <item
         android:id="@+id/teamDetailPage"
         android:icon="@drawable/team_details_icon"
         android:title="Team Details" />
     <item
+        android:id="@+id/leaderboardPage"
+        android:icon="@drawable/leaderboard_icon"
+        android:title="Leaderboard" />
+    <item
         android:id="@+id/accountPage"
         android:icon="@drawable/account_page_icon"
         android:title="Account" />
+
 </menu>
