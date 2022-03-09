@@ -43,8 +43,8 @@ public class CustomAdaptorViewIssues extends ArrayAdapter<Issues> {
 
             title.setText(issue.getTitle());
             desc.setText(issue.getDescription());
-            credits.setText(issue.getCredits());
-            due_date.setText(issue.getDue_date());
+            credits.setText("Credits: "+issue.getCredits());
+            due_date.setText("Due: "+issue.getDue_date());
 
         }catch (Exception e){
             System.out.println(e);
