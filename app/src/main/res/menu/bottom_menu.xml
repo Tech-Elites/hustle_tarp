@@ -4,6 +4,7 @@
     <item
         android:id="@+id/feedPage"
         android:icon="@drawable/feed_page_icon"
+
         android:title="Feed" />
     <item
         android:id="@+id/teamDetailPage"

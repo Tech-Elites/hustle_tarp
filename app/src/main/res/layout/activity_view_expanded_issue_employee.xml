@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewExpandedIssueEmployee">
+    tools:context=".ViewExpandedIssueEmployee"
+    android:background="@drawable/im6">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,11 +13,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="100dp"
             android:id="@+id/title_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:padding="15dp"
             android:text="TextView" />
@@ -25,7 +27,8 @@
             android:id="@+id/desc_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:padding="15dp"
             android:text="TextView" />
@@ -34,7 +37,8 @@
             android:id="@+id/credits_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:padding="15dp"
             android:text="TextView" />
@@ -43,7 +47,8 @@
             android:id="@+id/link_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:padding="15dp"
             android:text="TextView" />
@@ -52,15 +57,26 @@
             android:id="@+id/duedate_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:padding="15dp"
             android:text="TextView" />
 
-        <Button
-            android:id="@+id/button"
+        <com.sanojpunchihewa.glowbutton.GlowButton
+            android:id="@+id/Finishbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nexatextbold"
+            android:textAllCaps="false"
+            android:padding="25dp"
+            android:textColor="@color/lBlack"
+            app:cornerRadius="10dp"
+            app:unpressedGlowSize="18dp"
+            app:pressedGlowSize="25dp"
+            app:glowColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:textSize="20dp"
             android:layout_margin="20dp"
             android:text="Finish" />
     </LinearLayout>

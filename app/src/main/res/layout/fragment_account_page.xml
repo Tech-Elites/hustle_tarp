@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".accountPage">
+    tools:context=".accountPage"
+    android:background="@drawable/im2">
 
     <ProgressBar
         android:id="@+id/employeeAccountDetailsProgress"
@@ -49,7 +50,7 @@
                 <TextView
                     android:id="@+id/nameOfTheEmployeeAccountDetails"
                     android:layout_width="match_parent"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     android:layout_height="50dp"
                     android:text=""
                     android:textSize="40dp"
@@ -81,11 +82,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:textColor="@color/yellow"
+            android:textColor="@color/white"
             android:layout_margin="10dp"
-            android:textStyle="bold"
             android:fontFamily="@font/nexabold"
-            android:text="Pending"
+            android:text="Account Details"
             />
 
         <ListView
@@ -94,16 +94,21 @@
             android:layout_margin="10dp"
             android:layout_height="300dp" />
 
-        <Button
+        <com.sanojpunchihewa.glowbutton.GlowButton
             android:id="@+id/redeemButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/button"
-            android:fontFamily="@font/nexabold"
-            android:text="Redeem"
+            android:fontFamily="@font/nexatextbold"
             android:textAllCaps="false"
+            android:padding="25dp"
             android:textColor="@color/lBlack"
-            android:textSize="20dp" />
+            app:cornerRadius="10dp"
+            app:unpressedGlowSize="18dp"
+            app:pressedGlowSize="25dp"
+            app:glowColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:text="Redeem" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

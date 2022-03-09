@@ -11,14 +11,20 @@
         android:theme="@style/Theme.Hustle_TARP">
         <activity
             android:name=".RegistrationPage"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="false" />
         <activity android:name=".bottomNavigationPage" />
-        <activity android:name=".LoginPage"/>
-        <activity android:name=".adminLandingPage"></activity>
-        <activity android:name=".ViewExpandedIssueEmployee" />
+        <activity android:name=".LoginPage"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".adminLandingPage"
+            android:label=""></activity>
+        <activity android:name=".ViewExpandedIssueEmployee" android:label=""
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".RaiseIssue" />
-        <activity android:name=".employeeLandingPage" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".employeeLandingPage" android:label="" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

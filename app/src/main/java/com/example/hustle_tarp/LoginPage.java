@@ -64,7 +64,8 @@ public class LoginPage extends AppCompatActivity {
 //                                    finish();
 //                                    startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
                                     Employee e=task.getResult().getValue(Employee.class);
-                                    Toast.makeText(LoginPage.this, ""+e.getName(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(LoginPage.this, ""+e.getName(), Toast.LENGTH_SHORT).show();
+                                    p.setVisibility(View.INVISIBLE);
                                     if(e.getStatus().equals("Employee")){
                                         startActivity(new Intent(getApplicationContext(), employeeLandingPage.class));
                                     }
