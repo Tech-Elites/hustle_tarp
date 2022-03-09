@@ -47,6 +47,7 @@ public class LoginPage extends AppCompatActivity {
                     .show();
         }
         else{
+            p.setVisibility(View.VISIBLE);
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class RegistrationPage extends AppCompatActivity {
-
+    ProgressBar p1;
     String name,status="Employee",dob,email,password;
     EditText name_n,dob_d,email_e,password_p;
 
@@ -29,21 +30,24 @@ public class RegistrationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_page);
+        p1=findViewById(R.id.progressBarRegistrationPage);
         name_n=findViewById(R.id.name_registration_page);
         dob_d=findViewById(R.id.DOB_registration_page);
         email_e=findViewById(R.id.email_registration_page);
         password_p=findViewById(R.id.password_registration_page);
-
+        p1.setVisibility(View.INVISIBLE);
     }
     public void register(String name,String dob,String email,String password){
         if(TextUtils.isEmpty(name) || TextUtils.isEmpty(dob) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setMessage("Details not filled.")
+                    .setTitle("Details not filled")
+                    .setMessage("Fill all the details to proceed.")
                     .setPositiveButton("Ok",null)
                     .show();
         }
         else{
+            p1.setVisibility(View.VISIBLE);
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -62,7 +66,7 @@ public class RegistrationPage extends AppCompatActivity {
                                         finish();
                                     }
                                     else{
-                                        Toast.makeText(RegistrationPage.this, "Error", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegistrationPage.this, "Error2", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -70,6 +74,7 @@ public class RegistrationPage extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(RegistrationPage.this, "Error", Toast.LENGTH_SHORT).show();
+                        p1.setVisibility(View.INVISIBLE);
                     }
                 }
             });
