@@ -66,8 +66,10 @@ public class LoginPage extends AppCompatActivity {
                                     Employee e=task.getResult().getValue(Employee.class);
                                     Toast.makeText(LoginPage.this, ""+e.getName(), Toast.LENGTH_SHORT).show();
                                     if(e.getStatus().equals("Employee")){
-                                        finish();
                                         startActivity(new Intent(getApplicationContext(), employeeLandingPage.class));
+                                    }
+                                    else{
+                                        startActivity(new Intent(getApplicationContext(), adminLandingPage.class));
                                     }
 
                                 }

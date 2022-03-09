@@ -27,11 +27,11 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
         credits_expandedViewIssuesEmployee=findViewById(R.id.credits_employee_expanded_view);
         link_expandedViewIssuesEmployee=findViewById(R.id.link_employee_expanded_view);
         duedate_expandedViewIssuesEmployee=findViewById(R.id.duedate_employee_expanded_view);
-        title_expandedViewIssuesEmployee.setText(title);
+        title_expandedViewIssuesEmployee.setText("Issue: "+title);
         desc_expandedViewIssuesEmployee.setText(desc);
-        credits_expandedViewIssuesEmployee.setText(credits);
+        credits_expandedViewIssuesEmployee.setText("Credits: "+credits);
         link_expandedViewIssuesEmployee.setText(link);
-        duedate_expandedViewIssuesEmployee.setText(duedate);
+        duedate_expandedViewIssuesEmployee.setText("Due:"+duedate);
         Toast.makeText(this, ""+issue_id, Toast.LENGTH_SHORT).show();
     }
 }

@@ -15,36 +15,53 @@
             android:id="@+id/title_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:padding="15dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/desc_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:padding="15dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/credits_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:padding="15dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/link_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:padding="15dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/duedate_employee_expanded_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:padding="15dp"
             android:text="TextView" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:text="Finish" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
