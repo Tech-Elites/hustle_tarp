@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser u= FirebaseAuth.getInstance().getCurrentUser();
         if(u!=null)
         {
+            Toast.makeText(this, "here "+u.getUid(), Toast.LENGTH_LONG).show();
 
             FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Workers").child(u.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     {
 //                        progressBar.setVisibility(View.INVISIBLE);
                         Intent i = new Intent(MainActivity.this,employeeLandingPage.class);
-                        finish();
+
                         startActivity(i, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
 
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     {
 //                        progressBar.setVisibility(View.INVISIBLE);
                         Intent i = new Intent(MainActivity.this, adminLandingPage.class);
-                        finish();
+
                         startActivity(i, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
                     }
 
