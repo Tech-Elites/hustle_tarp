@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/feedPage">
+
+    <fragment
+        android:id="@+id/feedPage"
+        android:name="com.example.hustle_tarp.feedPage"
+        android:label="fragment_feed_page"
+        tools:layout="@layout/fragment_feed_page" />
+    <fragment
+        android:id="@+id/accountPage"
+        android:name="com.example.hustle_tarp.accountPage"
+        android:label="fragment_account_page"
+        tools:layout="@layout/fragment_account_page" />
+    <fragment
+        android:id="@+id/teamDetailPage"
+        android:name="com.example.hustle_tarp.teamDetailPage"
+        android:label="fragment_team_detail_page"
+        tools:layout="@layout/fragment_team_detail_page" />
+    <fragment
+        android:id="@+id/leaderboardPage"
+        android:name="com.example.hustle_tarp.leaderboardPage"
+        android:label="fragment_leaderboard_page"
+        tools:layout="@layout/fragment_leaderboard_page" />
+</navigation>

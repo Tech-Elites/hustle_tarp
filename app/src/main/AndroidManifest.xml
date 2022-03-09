@@ -12,7 +12,9 @@
         <activity android:name=".ViewExpandedIssueEmployee"></activity>
         <activity android:name=".ViewIssues" />
         <activity android:name=".RaiseIssue" />
+        <activity android:name=".bottomNavigationPage" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
