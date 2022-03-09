@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_admin"
+    app:startDestination="@id/feedPageAdmin">
+
+    <fragment
+        android:id="@+id/feedPageAdmin"
+        android:name="com.example.hustle_tarp.feedPageAdmin"
+        android:label="fragment_feed_page_admin"
+        tools:layout="@layout/fragment_feed_page_admin" />
+    <fragment
+        android:id="@+id/newIssuePage"
+        android:name="com.example.hustle_tarp.newIssuePage"
+        android:label="fragment_new_issue_page"
+        tools:layout="@layout/fragment_new_issue_page" />
+</navigation>

@@ -9,12 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
-        <activity android:name=".ViewExpandedIssueEmployee"></activity>
-
+        <activity android:name=".adminLandingPage"></activity>
+        <activity android:name=".ViewExpandedIssueEmployee" />
         <activity android:name=".RaiseIssue" />
-        <activity android:name=".bottomNavigationPage" />
+        <activity android:name=".employeeLandingPage" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

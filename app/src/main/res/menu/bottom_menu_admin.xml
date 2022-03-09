@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Pending Feed" android:id="@+id/feedPageAdmin" android:icon="@drawable/feed_page_icon"/>
+    <item android:title="New Issue" android:id="@+id/newIssuePage" android:icon="@drawable/new_issue_icon" />
+</menu>

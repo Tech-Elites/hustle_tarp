@@ -9,15 +9,16 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class bottomNavigationPage extends AppCompatActivity {
+public class adminLandingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigation_page);
+        setContentView(R.layout.activity_admin_landing_page);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        NavController navController = Navigation.findNavController(this,  R.id.fragment);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView2);
+        NavController navController = Navigation.findNavController(this,  R.id.fragment2);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 }
