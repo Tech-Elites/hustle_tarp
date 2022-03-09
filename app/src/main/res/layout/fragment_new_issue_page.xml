@@ -6,9 +6,57 @@
     tools:context=".newIssuePage">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/raise_issue_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Title" />
+        <EditText
+            android:id="@+id/raise_issue_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Description" />
+        <EditText
+            android:id="@+id/raise_issue_credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Credits" />
+        <EditText
+            android:id="@+id/raise_issue_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Link" />
+        <EditText
+            android:id="@+id/raise_issue_duedate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Duedate" />
+
+        <Button
+            android:id="@+id/raiseIssue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Raise" />
+    </LinearLayout>
 
 </FrameLayout>

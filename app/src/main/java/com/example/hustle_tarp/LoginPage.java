@@ -68,6 +68,9 @@ public class LoginPage extends AppCompatActivity {
                                     if(e.getStatus().equals("Employee")){
                                         startActivity(new Intent(getApplicationContext(), employeeLandingPage.class));
                                     }
+                                    else{
+                                        startActivity(new Intent(getApplicationContext(), adminLandingPage.class));
+                                    }
 
                                 }
                             });
