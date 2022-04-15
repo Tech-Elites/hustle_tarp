@@ -9,22 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
+        <activity android:name=".viewExpandedIssueAdmin"></activity>
+        <activity
+            android:name=".ViewExpandedIssueAdmin"
+            android:label="@string/title_activity_view_expanded_issue_admin"
+            android:theme="@style/Theme.Hustle_TARP.NoActionBar" />
         <activity
             android:name=".RegistrationPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".bottomNavigationPage" />
-        <activity android:name=".LoginPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".adminLandingPage"
-            android:label=""></activity>
-        <activity android:name=".ViewExpandedIssueEmployee" android:label=""
+        <activity
+            android:name=".LoginPage"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".adminLandingPage"
+            android:label="" />
+        <activity
+            android:name=".ViewExpandedIssueEmployee"
+            android:label=""
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".RaiseIssue" />
-        <activity android:name=".employeeLandingPage" android:label="" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+        <activity
+            android:name=".employeeLandingPage"
+            android:label="" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

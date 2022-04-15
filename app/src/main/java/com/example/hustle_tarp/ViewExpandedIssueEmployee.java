@@ -131,4 +131,10 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
         duedate_expandedViewIssuesEmployee.setText("Due:"+duedate);
         Toast.makeText(this, ""+issue_id, Toast.LENGTH_SHORT).show();
     }
+    //overriding the back button as the previous activity is finished
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(ViewExpandedIssueEmployee.this,employeeLandingPage.class));
+    }
 }
