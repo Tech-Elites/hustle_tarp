@@ -1,12 +1,27 @@
 package com.example.hustle_tarp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,7 +69,73 @@ public class feedPageAdmin extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    ListView all_issues_list_view;
+    CustomAdaptorViewIssues customAdaptorViewIssues;
+    ArrayList<Issues> issuesArrayList= new ArrayList<>();
+    ArrayList<String> issuesId=new ArrayList<>();
+    DatabaseReference databaseReference;
+    ProgressBar progressBar;
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        all_issues_list_view=getView().findViewById(R.id.all_issues_feed_admin);
+        progressBar=getView().findViewById(R.id.progressBarFeedPageAdmin);
+        progressBar.setVisibility(View.VISIBLE);
+        find_the_issues();
+        Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+    }
+    void find_the_issues(){
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Issues");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //int i=0;
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    //i++;
+                    issuesArrayList.add(dataSnapshot.getValue(Issues.class));
+                    issuesId.add(dataSnapshot.getKey());
+                    //Toast.makeText(getActivity(), ""+i, Toast.LENGTH_SHORT).show();
+                }
+                //fillTheForbiddenList();
+                populateTheList();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    void populateTheList(){
+        try {
+            progressBar.setVisibility(View.INVISIBLE);
+            customAdaptorViewIssues=new CustomAdaptorViewIssues(getActivity(),issuesArrayList);
+            all_issues_list_view.setAdapter(customAdaptorViewIssues);
+            all_issues_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    OnClickListView(i);
+                    //Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    void OnClickListView(int pos)
+    {
+        Intent i=new Intent(getActivity(),viewExpandedIssueAdmin.class);
+        Issues issues=issuesArrayList.get(pos);
+        i.putExtra("title",issues.getTitle());
+        i.putExtra("desc",issues.getDescription());
+        i.putExtra("credits",issues.getCredits());
+        i.putExtra("link",issues.getLink());
+        i.putExtra("duedate",issues.getDue_date());
+        i.putExtra("issueid",issuesId.get(pos));
+        getActivity().finish();
+        startActivity(i);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
