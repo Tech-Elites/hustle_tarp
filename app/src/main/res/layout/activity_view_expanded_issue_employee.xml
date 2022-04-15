@@ -64,9 +64,10 @@
             android:text="TextView" />
 
         <com.sanojpunchihewa.glowbutton.GlowButton
-            android:id="@+id/Finishbutton"
+            android:id="@+id/finishbuttonEmployee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="finishButtonEmployee"
             android:fontFamily="@font/nexatextbold"
             android:textAllCaps="false"
             android:padding="25dp"

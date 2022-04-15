@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -92,6 +94,7 @@ public class feedPage extends Fragment {
         listView_viewIssues=getView().findViewById(R.id.view_issue_listView);
         progressBar=getView().findViewById(R.id.progressBarEmployeeFeed);
         progressBar.setVisibility(View.VISIBLE);
+        //Toast.makeText(getActivity(), "Here in view createdd", Toast.LENGTH_SHORT).show();
         find_the_issues();
     }
     void find_the_issues(){
@@ -107,7 +110,8 @@ public class feedPage extends Fragment {
                     issuesId.add(dataSnapshot.getKey());
                     //Toast.makeText(getActivity(), ""+i, Toast.LENGTH_SHORT).show();
                 }
-                populateTheList();
+                fillTheForbiddenList();
+                //populateTheList();
             }
 
             @Override
@@ -115,6 +119,51 @@ public class feedPage extends Fragment {
 
             }
         });
+    }
+    ArrayList<String> forbidden_issue_list=new ArrayList<>();
+    void fillTheForbiddenList()
+    {
+
+        FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser!=null)
+        {
+            String user_id=firebaseUser.getUid();
+
+            databaseReference=FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("solSubmitted");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                    {
+                        solSubmitted sol=dataSnapshot.getValue(solSubmitted.class);
+
+                        if(sol.getUserId().equals(user_id))
+                        {
+
+                            forbidden_issue_list.add(sol.getIssueId());
+                        }
+                    }
+                    updateTheList();
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+    }
+    void updateTheList()
+    {
+        for(String for_id:forbidden_issue_list)
+        {
+            int index=issuesId.indexOf(for_id);
+            if(index>=0)
+            {
+                issuesId.remove(index);
+                issuesArrayList.remove(index);
+            }
+        }
+        populateTheList();
     }
     void populateTheList(){
         try {
@@ -140,6 +189,7 @@ public class feedPage extends Fragment {
         i.putExtra("link",issues.getLink());
         i.putExtra("duedate",issues.getDue_date());
         i.putExtra("issueid",issuesId.get(pos));
+        getActivity().finish();
         startActivity(i);
     }
 }
