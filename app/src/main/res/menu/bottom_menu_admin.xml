@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Pending Feed" android:id="@+id/feedPageAdmin" android:icon="@drawable/feed_page_icon"/>
-    <item android:title="New Issue" android:id="@+id/newIssuePage" android:icon="@drawable/new_issue_icon" />
+    <item
+        android:title="Pending Feed"
+        android:id="@+id/feedPageAdmin"
+        android:icon="@drawable/feed_page_icon" />
+    <item
+        android:title="New Issue"
+        android:id="@+id/newIssuePage"
+        android:icon="@drawable/new_issue_icon" />
+    <item
+        android:id="@+id/leaderboardPageAdmin"
+        android:icon="@drawable/leaderboard_icon"
+        android:title="Leaderboard" />
+    <item
+        android:id="@+id/teamDetailsPageAdmin"
+        android:icon="@drawable/team_details_icon"
+        android:title="Team Details" />
 </menu>
