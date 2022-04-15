@@ -10,21 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
         <activity
-            android:name=".RegistrationPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".bar_graph"
             android:exported="false" />
+        <activity
+            android:name=".RegistrationPage"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".bottomNavigationPage" />
-        <activity android:name=".LoginPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".adminLandingPage"
-            android:label=""></activity>
-        <activity android:name=".ViewExpandedIssueEmployee" android:label=""
+        <activity
+            android:name=".LoginPage"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".adminLandingPage"
+            android:label="" />
+        <activity
+            android:name=".ViewExpandedIssueEmployee"
+            android:label=""
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".RaiseIssue" />
-        <activity android:name=".employeeLandingPage" android:label="" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+        <activity
+            android:name=".employeeLandingPage"
+            android:label="" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
