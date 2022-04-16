@@ -56,14 +56,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nexabold"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:padding="15dp"
         android:text="TextView" />
+    <TextView
+        android:id="@+id/tags_admin_expanded_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nexabold"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:padding="15dp"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/all_solutions_text_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nexabold"
+        android:textColor="@color/lBlack"
+        android:textSize="35dp"
+        android:padding="15dp"
+        android:text="All Solutions-" />
 
         <ListView
             android:id="@+id/listView_submitted_solutions_expanded_view_admin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+        </ListView>
+
+
+
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBarTextPromptAdminExpandedViewIssue"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="400dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

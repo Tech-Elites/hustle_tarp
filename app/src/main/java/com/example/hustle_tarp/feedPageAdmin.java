@@ -133,6 +133,7 @@ public class feedPageAdmin extends Fragment {
         i.putExtra("link",issues.getLink());
         i.putExtra("duedate",issues.getDue_date());
         i.putExtra("issueid",issuesId.get(pos));
+        i.putExtra("tags",issues.getTags());
         getActivity().finish();
         startActivity(i);
     }

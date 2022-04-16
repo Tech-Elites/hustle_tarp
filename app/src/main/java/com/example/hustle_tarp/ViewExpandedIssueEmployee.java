@@ -25,10 +25,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class ViewExpandedIssueEmployee extends AppCompatActivity {
-    String title,desc,credits,link,duedate,issue_id,link_solution,comments_solution;
+    String title,desc,credits,link,duedate,issue_id,link_solution,comments_solution,tags;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    TextView title_expandedViewIssuesEmployee,desc_expandedViewIssuesEmployee,credits_expandedViewIssuesEmployee,
+    TextView title_expandedViewIssuesEmployee,desc_expandedViewIssuesEmployee,credits_expandedViewIssuesEmployee,tags_expandedViewIssuesEmployee,
     link_expandedViewIssuesEmployee,duedate_expandedViewIssuesEmployee;
     public void finishButtonEmployee(View v)
     {
@@ -119,6 +119,9 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
         link=i.getStringExtra("link");
         duedate=i.getStringExtra("duedate");
         issue_id=i.getStringExtra("issueid");
+        tags=i.getStringExtra("tags");
+        tags_expandedViewIssuesEmployee=findViewById(R.id.tags_employee_expanded_view);
+        tags_expandedViewIssuesEmployee.setText(tags);
         title_expandedViewIssuesEmployee=findViewById(R.id.title_employee_expanded_view);
         desc_expandedViewIssuesEmployee=findViewById(R.id.desc_employee_expanded_view);
         credits_expandedViewIssuesEmployee=findViewById(R.id.credits_employee_expanded_view);
@@ -129,6 +132,7 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
         credits_expandedViewIssuesEmployee.setText("Credits: "+credits);
         link_expandedViewIssuesEmployee.setText(link);
         duedate_expandedViewIssuesEmployee.setText("Due:"+duedate);
+        tags_expandedViewIssuesEmployee.setText(tags);
         Toast.makeText(this, ""+issue_id, Toast.LENGTH_SHORT).show();
     }
     //overriding the back button as the previous activity is finished

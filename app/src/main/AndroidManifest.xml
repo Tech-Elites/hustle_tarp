@@ -9,19 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
-        <activity android:name=".viewExpandedIssueAdmin"></activity>
+        <activity android:name=".TeamDetailsAdminEachMember"></activity>
+
         <activity
-            android:name=".bar_graph"
-            android:exported="true" />
-        <activity
-            android:name=".ViewExpandedIssueAdmin"
+            android:name=".viewExpandedIssueAdmin"
             android:label="@string/title_activity_view_expanded_issue_admin"
             android:theme="@style/Theme.Hustle_TARP.NoActionBar" />
         <activity
             android:name=".RegistrationPage"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".bottomNavigationPage" />
+
         <activity
             android:name=".LoginPage"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -32,7 +30,7 @@
             android:name=".ViewExpandedIssueEmployee"
             android:label=""
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".RaiseIssue" />
+
         <activity
             android:name=".employeeLandingPage"
             android:label="" />
