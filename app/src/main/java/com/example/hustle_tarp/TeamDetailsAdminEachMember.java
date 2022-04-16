@@ -1,11 +1,16 @@
 package com.example.hustle_tarp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -23,6 +28,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +45,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
     ArrayList<Integer> tagsPoints;
     ArrayList<Integer> datesPoints;
     DatabaseReference databaseReference;
+    TextView most_occ_tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,6 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         uid=b.getString("uid");
-
         tags=new ArrayList<>();
         tagsPoints=new ArrayList<>();
         dates=new ArrayList<>();
@@ -81,6 +87,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                     tags.add(dataSnapshot.getKey());
                 }
                 printhorizontal_chart(tags,tagsPoints);
+                getDetails(tags,tagsPoints);
             }
 
             @Override
@@ -167,11 +174,22 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
         xAxis.setEnabled(true);
 
         horizontalBarChart.getDescription().setText("No of Issues solved");
-
-
         horizontalBarChart.setAutoScaleMinMaxEnabled(true);
         horizontalBarChart.animateY(2000);
         horizontalBarChart.invalidate();
         horizontalBarChart.refreshDrawableState();
+    }
+
+    void getDetails(ArrayList<String> x,ArrayList<Integer> y){
+        most_occ_tag=(TextView) findViewById(R.id.most_sought_tag);
+        int max=0;
+        String res_tag="";
+        for(int i=0;i<x.size();i++){
+            if(y.get(i)>max){
+                max=y.get(i);
+                res_tag=x.get(i);
+            }
+        }
+        most_occ_tag.setText(res_tag);
     }
 }

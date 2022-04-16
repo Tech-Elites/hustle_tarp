@@ -46,6 +46,13 @@
                     android:padding="20dp"
                     android:textColor="@color/lBlack"
                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/most_sought_tag"
+                    android:textColor="@color/lBlack"
+                    android:textSize="14dp"
+                    android:padding="10dp"/>
 
         </LinearLayout>
 </ScrollView>
