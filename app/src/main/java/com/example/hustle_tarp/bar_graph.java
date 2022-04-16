@@ -35,6 +35,7 @@ public class bar_graph extends AppCompatActivity {
         barEntries.add(new BarEntry(2,70f));
         barEntries.add(new BarEntry(3,30f));
         barEntries.add(new BarEntry(4,50f));
+        System.out.println(barEntries);
         BarDataSet barDataSet=new BarDataSet(barEntries,"Dates");
 
         barDataSet.setColor(Color.RED);
