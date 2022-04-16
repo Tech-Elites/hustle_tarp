@@ -22,7 +22,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ViewExpandedIssueEmployee extends AppCompatActivity {
     String title,desc,credits,link,duedate,issue_id,link_solution,comments_solution,tags;
@@ -87,7 +90,8 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
                         Employee e;
                         e=task.getResult().getValue(Employee.class);
                         String name=e.getName();
-                        solSubmitted solSubmitted=new solSubmitted(id,name,link_solution,comments_solution,issue_id);
+                        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                        solSubmitted solSubmitted=new solSubmitted(id,name,link_solution,comments_solution,issue_id,date);
                         HashMap<String,String> hashMap=solSubmitted.getHashMap();
                         Toast.makeText(ViewExpandedIssueEmployee.this, ""+hashMap, Toast.LENGTH_SHORT).show();
                         firebaseDatabase.getReference().child("Team Alpha").child("solSubmitted").push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

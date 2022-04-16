@@ -3,7 +3,21 @@ package com.example.hustle_tarp;
 import java.util.HashMap;
 
 public class solSubmitted {
-    private String userId,userName,link,comments,issueId;
+    private String userId;
+    private String userName;
+    private String link;
+    private String comments;
+    private String issueId;
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    private String date;
 
     public solSubmitted() {
 
@@ -41,12 +55,13 @@ public class solSubmitted {
         return comments;
     }
 
-    public solSubmitted(String userId, String userName, String link, String comments,String issueId) {
+    public solSubmitted(String userId, String userName, String link, String comments,String issueId,String date) {
         this.userId = userId;
         this.userName = userName;
         this.link = link;
         this.comments = comments;
         this.issueId=issueId;
+        this.date=date;
     }
 
     public void setIssueId(String issueId) {
@@ -65,6 +80,7 @@ public class solSubmitted {
         hashMap.put("link",link);
         hashMap.put("comments",comments);
         hashMap.put("issueId",issueId);
+        hashMap.put("date",date);
         return hashMap;
 
     }

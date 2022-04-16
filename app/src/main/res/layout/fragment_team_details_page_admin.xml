@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/im1"
+    android:background="@color/white"
     tools:context=".teamDetailsPageAdmin" >
 
     <ProgressBar
@@ -26,11 +26,16 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:layout_margin="20dp"
-            android:text="Team Details" />
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="40dp"
+            android:drawableLeft="@drawable/team_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:text="Team Details"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,8 +46,8 @@
                 android:id="@+id/teamDetalsAdminList1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="10dp" >
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1" >
 
             </ListView>
 
