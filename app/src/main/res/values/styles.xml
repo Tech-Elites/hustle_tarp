@@ -3,4 +3,7 @@
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorControlNormal">@color/white</item>
     </style>
+    <style name="Style_TextView">
+        <item name="fontFamily">@font/nexabold</item>
+    </style>
 </resources>
