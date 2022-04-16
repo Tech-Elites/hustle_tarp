@@ -56,10 +56,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nexabold"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:padding="15dp"
         android:text="TextView" />
+    <TextView
+        android:id="@+id/all_solutions_text_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nexabold"
+        android:textColor="@color/lBlack"
+        android:textSize="35dp"
+        android:padding="15dp"
+        android:text="All Solutions-" />
 
         <ListView
             android:id="@+id/listView_submitted_solutions_expanded_view_admin"
