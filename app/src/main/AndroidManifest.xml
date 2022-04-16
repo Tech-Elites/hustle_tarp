@@ -24,6 +24,7 @@
             android:name=".LoginPage"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:name=".adminLandingPage"
             android:windowSoftInputMode="adjustPan"
             android:label="" />

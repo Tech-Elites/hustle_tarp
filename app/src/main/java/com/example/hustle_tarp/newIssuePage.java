@@ -1,5 +1,6 @@
 package com.example.hustle_tarp;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -69,10 +72,13 @@ public class newIssuePage extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_new_issue_page, container, false);
     }
 
@@ -80,17 +86,33 @@ public class newIssuePage extends Fragment {
     EditText title_editText,description_editText,credits_editText,link_editText,duedate_editText,tags_editText;
     String title,description,credits,link,duedate,tags;
     Button b;
+    private DatePickerDialog datePickerDialog;
+    Button button;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initDatePicker();
+
+        button = (Button) getView().findViewById(R.id.issueDueDateBut);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // do something
+                datePickerDialog.show();
+            }
+        });
+
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Issues");
         title_editText=getView().findViewById(R.id.raise_issue_title);
         description_editText=getView().findViewById(R.id.raise_issue_desc);
         credits_editText=getView().findViewById(R.id.raise_issue_credits);
         link_editText=getView().findViewById(R.id.raise_issue_link);
         tags_editText=getView().findViewById(R.id.raise_issue_tags);
-        duedate_editText=getView().findViewById(R.id.raise_issue_duedate);
+
+        duedate=getTodaysDate();
         b=getView().findViewById(R.id.raiseIssue);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +127,6 @@ public class newIssuePage extends Fragment {
         description=description_editText.getText().toString();
         credits=credits_editText.getText().toString();
         link=link_editText.getText().toString();
-        duedate=duedate_editText.getText().toString();
         tags=tags_editText.getText().toString();
         if(!TextUtils.isEmpty(title)&&!TextUtils.isEmpty(description)&&!TextUtils.isEmpty(credits)&&!TextUtils.isEmpty(title)&&
                 !TextUtils.isEmpty(title)&&!TextUtils.isEmpty(tags)){
@@ -149,5 +170,40 @@ public class newIssuePage extends Fragment {
                     })
                     .show();
         }
+    }
+
+    private String getTodaysDate()
+    {
+        return "";
+    }
+
+    private void initDatePicker()
+    {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                month = month + 1;
+                duedate = makeDateString(day, month, year);
+                button.setText(duedate);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = android.app.AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(getContext(), style, dateSetListener, year, month, day);
+        //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
+    }
+
+    private String makeDateString(int day, int month, int year)
+    {
+        return day + "/" + Integer.toString(month)+ "/" + year;
     }
 }
