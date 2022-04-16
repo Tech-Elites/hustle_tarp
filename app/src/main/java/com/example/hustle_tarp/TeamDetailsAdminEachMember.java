@@ -2,10 +2,27 @@ package com.example.hustle_tarp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,27 +32,41 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class TeamDetailsAdminEachMember extends AppCompatActivity {
-
-    TextView tv;
     String uid;
 
     ArrayList<String> tags;
+    ArrayList<String> dates;
     ArrayList<Integer> tagsPoints;
+    ArrayList<Integer> datesPoints;
     DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_details_admin_each_member);
-        tv=findViewById(R.id.teamDetailsAdminEach);
 
         Bundle b = getIntent().getExtras();
         uid=b.getString("uid");
-        tv.setText(uid);
 
         tags=new ArrayList<>();
         tagsPoints=new ArrayList<>();
+        dates=new ArrayList<>();
+        datesPoints=new ArrayList<>();
+        find_dates();
         find();
+    }
+
+    public class MyXAxisFormatter extends ValueFormatter {
+        private ArrayList<String > mvalues;
+
+        public MyXAxisFormatter(ArrayList<String> values) {
+            this.mvalues=values;
+        }
+
+        @Override
+        public String getAxisLabel(float value, AxisBase axis) {
+            return mvalues.get((int)value);
+        }
     }
 
     void find(){
@@ -49,6 +80,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                     tagsPoints.add(Integer.parseInt(dataSnapshot.getValue().toString()));
                     tags.add(dataSnapshot.getKey());
                 }
+                printhorizontal_chart(tags,tagsPoints);
             }
 
             @Override
@@ -58,6 +90,88 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
         });
     }
 
+    void find_dates(){
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("info-employee").child(uid).child("dates");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    datesPoints.add(Integer.parseInt(dataSnapshot.getValue().toString()));
+                    dates.add(dataSnapshot.getKey());
+                }
+                printchart(dates,datesPoints);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    void printchart(ArrayList<String> x,ArrayList<Integer> y){
+        LineChart lineChart=(LineChart) findViewById(R.id.linegraph);
+        ArrayList<Entry> entries=new ArrayList<>();
+        for(int i=0;i<x.size();i++){
+            if(y.get(i)==0){
+                continue;
+            }
+            else{
+                entries.add(new Entry(i,y.get(i)));
+            }
+        }
+        LineDataSet lineDataSet=new LineDataSet(entries,"Dates");
+        lineDataSet.setColor(Color.RED);
+        lineDataSet.setValueTextSize(10f);
+
+        ArrayList<ILineDataSet> dataSets=new ArrayList<>();
+        dataSets.add(lineDataSet);
+
+        LineData theData = new LineData(dataSets);
+        lineChart.setData(theData);
+        lineChart.getXAxis().setValueFormatter(new MyXAxisFormatter(x));
+        lineChart.getXAxis().setGranularity(1);
+        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        lineChart.getAxisRight().setEnabled(false);
+        lineChart.animateY(2000);
+        lineChart.invalidate();
+        lineChart.refreshDrawableState();
+    }
+
+    void printhorizontal_chart(ArrayList<String> x,ArrayList<Integer> y){
+        int count=0;
+        HorizontalBarChart horizontalBarChart=(HorizontalBarChart) findViewById(R.id.hori_bargraph);
+        ArrayList<BarEntry> entries=new ArrayList<>();
+        for(int i=0;i<x.size();i++){
+            if(y.get(i)==0){
+                continue;
+            }
+            else{
+                count++;
+                entries.add(new BarEntry(i,y.get(i)));
+            }
+        }
+        BarDataSet barDataSet=new BarDataSet(entries,"Category");
+        barDataSet.setValueTextSize(10f);
+
+        ArrayList<IBarDataSet> dataSets=new ArrayList<>();
+        dataSets.add(barDataSet);
+
+        BarData theData = new BarData(dataSets);
+        theData.setBarWidth(0.3f);
+        horizontalBarChart.setData(theData);
+
+        XAxis xAxis= horizontalBarChart.getXAxis();
+        xAxis.setLabelCount(count);
+        xAxis.setValueFormatter(new MyXAxisFormatter(x));
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setEnabled(true);
+
+        horizontalBarChart.getDescription().setText("No of Issues solved");
 
 
+        horizontalBarChart.setAutoScaleMinMaxEnabled(true);
+        horizontalBarChart.animateY(2000);
+        horizontalBarChart.invalidate();
+        horizontalBarChart.refreshDrawableState();
+    }
 }
