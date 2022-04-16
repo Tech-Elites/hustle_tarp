@@ -1,11 +1,16 @@
 package com.example.hustle_tarp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -23,6 +28,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +45,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
     ArrayList<Integer> tagsPoints;
     ArrayList<Integer> datesPoints;
     DatabaseReference databaseReference;
+    TextView most_occ_tag,most_prod_day,least_prod_day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +54,17 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         uid=b.getString("uid");
-
         tags=new ArrayList<>();
         tagsPoints=new ArrayList<>();
         dates=new ArrayList<>();
         datesPoints=new ArrayList<>();
-        find_dates();
-        find();
+        try{
+            find_dates();
+            find();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public class MyXAxisFormatter extends ValueFormatter {
@@ -65,6 +76,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
 
         @Override
         public String getAxisLabel(float value, AxisBase axis) {
+            System.out.println(value);
             return mvalues.get((int)value);
         }
     }
@@ -81,6 +93,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                     tags.add(dataSnapshot.getKey());
                 }
                 printhorizontal_chart(tags,tagsPoints);
+                getDetails(tags,tagsPoints);
             }
 
             @Override
@@ -100,6 +113,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                     dates.add(dataSnapshot.getKey());
                 }
                 printchart(dates,datesPoints);
+                getDetails1(dates,datesPoints);
             }
 
             @Override
@@ -118,6 +132,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
             else{
                 entries.add(new Entry(i,y.get(i)));
             }
+            System.out.println(entries);
         }
         LineDataSet lineDataSet=new LineDataSet(entries,"Dates");
         lineDataSet.setColor(Color.RED);
@@ -150,8 +165,9 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                 entries.add(new BarEntry(i,y.get(i)));
             }
         }
-        BarDataSet barDataSet=new BarDataSet(entries,"Category");
+        BarDataSet barDataSet=new BarDataSet(entries,"Topics");
         barDataSet.setValueTextSize(10f);
+        barDataSet.setColors(new int[] {Color.RED, Color.GREEN, Color.GRAY, Color.BLACK, Color.BLUE});
 
         ArrayList<IBarDataSet> dataSets=new ArrayList<>();
         dataSets.add(barDataSet);
@@ -167,11 +183,42 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
         xAxis.setEnabled(true);
 
         horizontalBarChart.getDescription().setText("No of Issues solved");
-
-
         horizontalBarChart.setAutoScaleMinMaxEnabled(true);
         horizontalBarChart.animateY(2000);
         horizontalBarChart.invalidate();
         horizontalBarChart.refreshDrawableState();
+    }
+
+    void getDetails(ArrayList<String> x,ArrayList<Integer> y){
+        most_occ_tag=(TextView) findViewById(R.id.most_sought_tag);
+        int max=0;
+        String res_tag="";
+        for(int i=0;i<x.size();i++){
+            if(y.get(i)>max){
+                max=y.get(i);
+                res_tag=x.get(i);
+            }
+        }
+        most_occ_tag.setText("Most sought after Topic : "+res_tag);
+    }
+
+    void getDetails1(ArrayList<String> x,ArrayList<Integer> y){
+        most_prod_day=(TextView) findViewById(R.id.most_productive_day);
+        least_prod_day=(TextView) findViewById(R.id.least_productive_day);
+        int max1=0,min1=10000;
+        String most_date="";
+        String least_date="";
+        for(int i=0;i<x.size();i++){
+            if(y.get(i)>max1){
+                max1=y.get(i);
+                most_date=x.get(i);
+            }
+            if(y.get(i)<min1 && y.get(i)!=0){
+                min1=y.get(i);
+                least_date=x.get(i);
+            }
+        }
+        most_prod_day.setText("The most productive day is : "+most_date);
+        least_prod_day.setText("The least productive day is : "+least_date);
     }
 }
