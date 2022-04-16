@@ -89,7 +89,7 @@
             android:textColor="@color/black"
             android:layout_margin="10dp"
             android:fontFamily="@font/nexabold"
-            android:text="Account Details"
+            android:text="Pending Issues:"
             />
 
         <ListView
