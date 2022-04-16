@@ -51,8 +51,28 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/most_sought_tag"
                     android:textColor="@color/lBlack"
-                    android:textSize="14dp"
-                    android:padding="10dp"/>
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/least_productive_day"
+                    android:textColor="@color/lBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/most_productive_day"
+                    android:textColor="@color/lBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"/>
 
         </LinearLayout>
 </ScrollView>
