@@ -8,8 +8,8 @@
         android:title="Feed" />
     <item
         android:id="@+id/teamDetailPage"
-        android:icon="@drawable/team_details_icon"
-        android:title="Team Details" />
+        android:icon="@drawable/analytics_icon"
+        android:title="Analytics" />
     <item
         android:id="@+id/leaderboardPage"
         android:icon="@drawable/leaderboard_icon"
