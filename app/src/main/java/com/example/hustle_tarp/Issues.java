@@ -3,7 +3,15 @@ package com.example.hustle_tarp;
 import java.util.HashMap;
 
 public class Issues {
-    private String title,description,credits,link,due_date;
+    private String title,description,credits,link,due_date,tags;
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getTags() {
+        return tags;
+    }
 
     public Issues() {
     }
@@ -48,12 +56,13 @@ public class Issues {
         return due_date;
     }
 
-    public Issues(String title, String description, String credits, String link, String due_date) {
+    public Issues(String title, String description, String credits, String link, String due_date,String tags) {
         this.title = title;
         this.description = description;
         this.credits = credits;
         this.link = link;
         this.due_date = due_date;
+        this.tags=tags;
     }
     public HashMap getHashMap(){
         HashMap<String,String> hashMap = new HashMap<>();
@@ -62,6 +71,7 @@ public class Issues {
         hashMap.put("credits",credits);
         hashMap.put("link",link);
         hashMap.put("due_date",due_date);
+        hashMap.put("tags",tags);
         return hashMap;
     }
 }

@@ -77,8 +77,8 @@ public class newIssuePage extends Fragment {
     }
 
     DatabaseReference databaseReference;
-    EditText title_editText,description_editText,credits_editText,link_editText,duedate_editText;
-    String title,description,credits,link,duedate;
+    EditText title_editText,description_editText,credits_editText,link_editText,duedate_editText,tags_editText;
+    String title,description,credits,link,duedate,tags;
     Button b;
 
     @Override
@@ -89,6 +89,7 @@ public class newIssuePage extends Fragment {
         description_editText=getView().findViewById(R.id.raise_issue_desc);
         credits_editText=getView().findViewById(R.id.raise_issue_credits);
         link_editText=getView().findViewById(R.id.raise_issue_link);
+        tags_editText=getView().findViewById(R.id.raise_issue_tags);
         duedate_editText=getView().findViewById(R.id.raise_issue_duedate);
         b=getView().findViewById(R.id.raiseIssue);
         b.setOnClickListener(new View.OnClickListener() {
@@ -105,9 +106,10 @@ public class newIssuePage extends Fragment {
         credits=credits_editText.getText().toString();
         link=link_editText.getText().toString();
         duedate=duedate_editText.getText().toString();
+        tags=tags_editText.getText().toString();
         if(!TextUtils.isEmpty(title)&&!TextUtils.isEmpty(description)&&!TextUtils.isEmpty(credits)&&!TextUtils.isEmpty(title)&&
-                !TextUtils.isEmpty(title)){
-            Issues issues=new Issues(title,description,credits,link,duedate);
+                !TextUtils.isEmpty(title)&&!TextUtils.isEmpty(tags)){
+            Issues issues=new Issues(title,description,credits,link,duedate,tags);
             HashMap<String,String> h_map=issues.getHashMap();
             databaseReference.push().setValue(h_map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override

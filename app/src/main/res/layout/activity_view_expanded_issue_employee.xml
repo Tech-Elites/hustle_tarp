@@ -62,6 +62,15 @@
             android:textSize="15dp"
             android:padding="15dp"
             android:text="TextView" />
+        <TextView
+            android:id="@+id/tags_employee_expanded_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:padding="15dp"
+            android:text="TextView" />
 
         <com.sanojpunchihewa.glowbutton.GlowButton
             android:id="@+id/finishbuttonEmployee"

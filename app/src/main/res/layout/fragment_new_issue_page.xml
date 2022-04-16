@@ -80,6 +80,17 @@
             android:layout_margin="20dp"
             android:inputType="textPersonName"
             android:hint="Duedate" />
+        <EditText
+            android:id="@+id/raise_issue_tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:inputType="textPersonName"
+            android:hint="Tags" />
 
         <com.sanojpunchihewa.glowbutton.GlowButton
             android:id="@+id/raiseIssue"
