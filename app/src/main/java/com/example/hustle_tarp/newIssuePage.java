@@ -147,7 +147,7 @@ public class newIssuePage extends Fragment {
                                         description_editText.setText("");
                                         credits_editText.setText("");
                                         link_editText.setText("");
-                                        duedate_editText.setText("");
+                                        //duedate_editText.setText("");
                                         tags_editText.setText("");
                                     }
                                 })

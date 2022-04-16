@@ -9,15 +9,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,6 +81,10 @@ public class accountPage extends Fragment {
     String currentuser,name,points;
     TextView nameTv,pointsTv,pendingTv;
     ProgressBar progressBar;
+    ListView listViewPending;
+    pendingIssueCustomAdaptor pendingIssueCustomAdaptor;
+    ArrayList<pendingIssue> pendingIssueArrayList=new ArrayList<>();
+    HashMap<String,String> issue_id_to_due_date=new HashMap<>();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -86,6 +95,7 @@ public class accountPage extends Fragment {
         pendingTv=getView().findViewById(R.id.noofPendingAppliAccountDetails);
         progressBar=getView().findViewById(R.id.employeeAccountDetailsProgress);
         progressBar.setVisibility(View.VISIBLE);
+        listViewPending=getView().findViewById(R.id.listViewForPendingApplications);
         getName();
     }
 
@@ -113,8 +123,9 @@ public class accountPage extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 points=snapshot.child("points").getValue().toString();
                 pointsTv.setText("Points: "+points);
-                pendingTv.setText("Pending: ");
-                progressBar.setVisibility(View.INVISIBLE);
+                //pendingTv.setText("Pending: ");
+                //progressBar.setVisibility(View.INVISIBLE);
+                getPendingIssues();
             }
 
             @Override
@@ -122,5 +133,67 @@ public class accountPage extends Fragment {
 
             }
         });
+    }
+    int no_of_pending_issues;
+    void getPendingIssues(){
+        FirebaseUser u=FirebaseAuth.getInstance().getCurrentUser();
+        if(u!=null)
+        {
+            no_of_pending_issues=0;
+            String user_id=u.getUid();
+            FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("solSubmitted").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                    {
+                        solSubmitted solSubmitted=dataSnapshot.getValue(com.example.hustle_tarp.solSubmitted.class);
+                        if(solSubmitted.getUserId().equals(user_id))
+                        {
+                            no_of_pending_issues++;
+                            issue_id_to_due_date.put(solSubmitted.getIssueId(),solSubmitted.getDate());
+                        }
+                    }
+                    fill_the_pending_issues_list();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+    }
+    void fill_the_pending_issues_list()
+    {
+        pendingTv.setText("Pending: "+no_of_pending_issues);
+        FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Issues").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Issues issues=dataSnapshot.getValue(Issues.class);
+                    if(issue_id_to_due_date.containsKey(dataSnapshot.getKey()))
+                    {
+                        pendingIssueArrayList.add(new pendingIssue(issues.getTitle(),issues.getDescription(),issue_id_to_due_date.get(dataSnapshot.getKey())));
+                    }
+                }
+                fill_the_list();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        //Toast.makeText(getActivity(), ""+issue_id_to_due_date, Toast.LENGTH_SHORT).show();
+    }
+    void fill_the_list()
+    {
+        try {
+            progressBar.setVisibility(View.INVISIBLE);
+            pendingIssueCustomAdaptor=new pendingIssueCustomAdaptor(getActivity(),pendingIssueArrayList);
+            listViewPending.setAdapter(pendingIssueCustomAdaptor);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
