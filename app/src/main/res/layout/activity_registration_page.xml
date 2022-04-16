@@ -4,107 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationPage"
-    android:background="@drawable/im6">
+    android:background="@color/white"
+    tools:context=".RegistrationPage">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+
+        android:padding="15dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textColor="@color/white"
+            android:fontFamily="@font/nexatextbold"
             android:paddingHorizontal="10dp"
             android:paddingVertical="20dp"
-            android:fontFamily="@font/nexatextbold"
-            android:text="Create Account:" />
+            android:text="Hustle Up!"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
-        <EditText
-            android:id="@+id/email_registration_page"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:textColorHint="@color/colorPrimary"
-            android:fontFamily="@font/nexatextbold"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:inputType="textEmailAddress"
-            android:text="" />
+            android:background="@drawable/rounded_edges_dark"
 
-        <EditText
-            android:id="@+id/password_registration_page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:fontFamily="@font/nexatextbold"
-            android:textColorHint="@color/colorPrimary"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text="" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/name_registration_page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nexatextbold"
-            android:ems="10"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Name"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:inputType=""
-            android:text="" />
+            <EditText
+                android:id="@+id/name_registration_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:ems="10"
+                android:fontFamily="@font/nexatextbold"
+                android:hint="Name"
+                android:inputType=""
+                android:padding="10dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/email_registration_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/mail_icon"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/nexatextbold"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/password_registration_page"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/password_icon"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/white"
+                    android:ems="10"
+                    android:fontFamily="@font/nexatextbold"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/registerDobButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/black"
+                    android:drawableLeft="@drawable/dob_icon"
+                    android:drawablePadding="10dp"
+                    android:textAlignment="textStart"
+                    android:drawableTint="@color/white"
+                    android:hint="DOB"
+                    android:textColorHint="@color/colorPrimary"
+                    android:onClick="takeTime"
+                    />
+            </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/DOB_registration_page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nexatextbold"
-            android:textColorHint="@color/colorPrimary"
-            android:ems="10"
-            android:inputType=""
-            android:hint="DOB"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:text="" />
-
-        <com.sanojpunchihewa.glowbutton.GlowButton
-            android:id="@+id/Submit_Registration_Page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="25dp"
-            android:onClick="registerButton"
-            android:fontFamily="@font/nexatextbold"
-            android:textAllCaps="false"
-            app:cornerRadius="10dp"
-            app:unpressedGlowSize="18dp"
-            app:pressedGlowSize="25dp"
-            app:glowColor="@color/white"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/lBlack"
-            android:textSize="20dp"
-            android:layout_margin="20dp"
-            android:text="Register" />
+            <com.sanojpunchihewa.glowbutton.GlowButton
+                android:id="@+id/Submit_Registration_Page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nexatextbold"
+                android:onClick="registerButton"
+                android:padding="25dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="@color/lBlack"
+                android:textSize="20dp"
+                app:cornerRadius="10dp"
+                app:glowColor="@color/white"
+                app:pressedGlowSize="25dp"
+                app:unpressedGlowSize="18dp" />
+        </LinearLayout>
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/progressBarRegistrationPage"
         style="?android:attr/progressBarStyle"

@@ -58,7 +58,6 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
         });
     }
 
-    
 
 
 }
