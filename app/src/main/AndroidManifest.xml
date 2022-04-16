@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
-        <activity android:name=".TeamDetailsAdminEachMember"></activity>
-
+        <activity android:name=".ShowNotifications"></activity>
+        <activity android:name=".TeamDetailsAdminEachMember" />
         <activity
             android:name=".viewExpandedIssueAdmin"
             android:label="@string/title_activity_view_expanded_issue_admin"
@@ -19,20 +19,17 @@
             android:name=".RegistrationPage"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".LoginPage"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".adminLandingPage"
-
-            android:label="" />
+            android:label=""
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ViewExpandedIssueEmployee"
             android:label=""
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".employeeLandingPage"
             android:label="" />

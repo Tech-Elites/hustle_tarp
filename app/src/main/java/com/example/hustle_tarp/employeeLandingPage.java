@@ -45,7 +45,7 @@ public class employeeLandingPage extends AppCompatActivity {
     }
     void showNotifications()
     {
-        Toast.makeText(this, "NotificationsShowed", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,ShowNotifications.class));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
