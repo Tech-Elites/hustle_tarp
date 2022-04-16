@@ -20,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexatextbold"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="20dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="30dp"
             android:text="Hustle Up!"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="50dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edges_dark"
-
+            android:paddingVertical="70dp"
+            android:paddingHorizontal="10dp"
             android:orientation="vertical">
 
             <EditText
@@ -73,7 +74,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="70dp"
                 android:orientation="horizontal">
 
                 <EditText
@@ -138,7 +140,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

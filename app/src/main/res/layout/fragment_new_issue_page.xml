@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".newIssuePage"
-    android:background="@drawable/im4">
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -17,11 +17,12 @@
         <TextView
             android:id="@+id/textView2"
             android:text="Raise an Issue:"
-            android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textSize="40dp"
             android:fontFamily="@font/nexabold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:ems="10"
             android:layout_margin="20dp"/>
 
@@ -31,65 +32,103 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_margin="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="#595959"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
             android:inputType="textPersonName"
+            android:drawableLeft="@drawable/title_icon"
+            android:drawableTint="@color/black"
+            android:drawablePadding="10dp"
             android:hint="Title" />
         <EditText
             android:id="@+id/raise_issue_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/black"
+            android:textColorHint="#595959"
             android:ems="10"
-            android:layout_margin="20dp"
-            android:inputType="textPersonName"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:inputType="textMultiLine"
+            android:drawableLeft="@drawable/description_icon"
+            android:drawableTint="@color/black"
+            android:drawablePadding="10dp"
+            android:lines="3"
             android:hint="Description" />
-        <EditText
-            android:id="@+id/raise_issue_credits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:ems="10"
-            android:layout_margin="20dp"
-            android:inputType="textPersonName"
-            android:hint="Credits" />
+
         <EditText
             android:id="@+id/raise_issue_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:drawableLeft="@drawable/link_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/black"
             android:ems="10"
-            android:layout_margin="20dp"
+            android:fontFamily="@font/nexabold"
+            android:hint="Link"
             android:inputType="textPersonName"
-            android:hint="Link" />
-        <EditText
-            android:id="@+id/raise_issue_duedate"
-            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHint="#595959" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:ems="10"
-            android:layout_margin="20dp"
-            android:inputType="textPersonName"
-            android:hint="Duedate" />
+            android:layout_marginHorizontal="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/raise_issue_credits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="8dp"
+                android:drawableLeft="@drawable/credits_icon"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/black"
+                android:ems="10"
+                android:fontFamily="@font/nexabold"
+                android:hint="Credits"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textColorHint="#595959" />
+
+            <Button
+                android:id="@+id/issueDueDateBut"
+                android:layout_width="150dp"
+                android:textAlignment="textStart"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="center"
+                android:hint="Due Date"
+                android:textColorHint="@color/white"
+                android:drawableLeft="@drawable/duedate_icon"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                />
+        </LinearLayout>
+
         <EditText
             android:id="@+id/raise_issue_tags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/black"
+            android:textColorHint="#595959"
             android:ems="10"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
             android:inputType="textPersonName"
+            android:drawableLeft="@drawable/tags_icon"
+            android:drawableTint="@color/black"
+            android:drawablePadding="10dp"
             android:hint="Tags" />
 
         <com.sanojpunchihewa.glowbutton.GlowButton
@@ -99,12 +138,12 @@
             android:fontFamily="@font/nexatextbold"
             android:textAllCaps="false"
             android:padding="25dp"
-            android:textColor="@color/lBlack"
+            android:textColor="@color/white"
             app:cornerRadius="10dp"
             app:unpressedGlowSize="18dp"
             app:pressedGlowSize="25dp"
             app:glowColor="@color/white"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             android:textSize="20dp"
             android:layout_margin="20dp"
             android:text="Raise" />
