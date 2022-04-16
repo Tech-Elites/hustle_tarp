@@ -7,6 +7,7 @@
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/drawable/button.xml" value="0.2265" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/drawable/ic_baseline_supervised_user_circle_24.xml" value="0.2265" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_admin_landing_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_bar_graph.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_bottom_navigation_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_issue_creation.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_login_page.xml" value="0.264" />
@@ -15,12 +16,18 @@
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/activity_view_expanded_issue_employee.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/custom_viewissues_list_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_account_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_account_page_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_feed_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_feed_page_admin.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_leaderboard_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_leaderboard_page.xml" value="0.2" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_leaderboard_page_admin.xml" value="0.2" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_new_issue_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_team_detail_page.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/menu/bottom_menu.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/layout/fragment_team_details_page_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/menu/bottom_menu.xml" value="0.264" />
+        <entry key="..\:/Users/devan/OneDrive/Desktop/Android Proj/hustle_tarp/app/src/main/res/menu/bottom_menu_admin.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

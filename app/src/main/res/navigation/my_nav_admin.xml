@@ -15,4 +15,14 @@
         android:name="com.example.hustle_tarp.newIssuePage"
         android:label="fragment_new_issue_page"
         tools:layout="@layout/fragment_new_issue_page" />
+    <fragment
+        android:id="@+id/leaderboardPageAdmin"
+        android:name="com.example.hustle_tarp.leaderboardPageAdmin"
+        android:label="fragment_leaderboard_page_admin"
+        tools:layout="@layout/fragment_leaderboard_page_admin" />
+    <fragment
+        android:id="@+id/teamDetailsPageAdmin"
+        android:name="com.example.hustle_tarp.teamDetailsPageAdmin"
+        android:label="fragment_team_details_page_admin"
+        tools:layout="@layout/fragment_team_details_page_admin" />
 </navigation>
