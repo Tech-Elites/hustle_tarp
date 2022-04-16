@@ -25,6 +25,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".adminLandingPage"
+            android:windowSoftInputMode="adjustPan"
             android:label="" />
         <activity
             android:name=".ViewExpandedIssueEmployee"

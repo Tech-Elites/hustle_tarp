@@ -72,7 +72,7 @@ public class RegistrationPage extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegistrationPage.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                        finish();
+                                        add_info_employee(uid,name);
                                     }
                                     else{
                                         Toast.makeText(RegistrationPage.this, "Error2", Toast.LENGTH_SHORT).show();
@@ -89,10 +89,27 @@ public class RegistrationPage extends AppCompatActivity {
             });
         }
     }
-
+    void add_info_employee(String user_id,String name)
+    {
+        int points=0;
+        HashMap<String,Integer> tags=new HashMap<>();
+        tags.put("NULL",0);
+        HashMap<String,Integer> dates=new HashMap<>();
+        dates.put("NULL",0);
+        InfoEmployeeClass infoEmployeeClass=new InfoEmployeeClass(points,name,tags,dates);
+        FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("info-employee").child(user_id).setValue(infoEmployeeClass.getHashMap()).addOnCompleteListener(
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(RegistrationPage.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
+        );
+    }
     public void registerButton(View view){
         name=name_n.getText().toString();
-        dob=dob_d.getText().toString();
+        //dob=dob_d.getText().toString();
         email=email_e.getText().toString();
         password=password_p.getText().toString();
         register(name,dob,email,password);
@@ -111,8 +128,8 @@ public class RegistrationPage extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day)
             {
                 month = month + 1;
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
+                dob = makeDateString(day, month, year);
+                dateButton.setText(dob);
             }
         };
 

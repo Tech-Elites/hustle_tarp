@@ -232,7 +232,7 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
         {
             String message;
             if(accepted_user_id.equals(array_list_sol_submitted.get(index).getUserId()))
-                message="Congrats your submission for issue-'"+title+"' with due date "+duedate+" that you submitted on "+array_list_sol_submitted.get(index).getDate()+" has been accepted!! And you have been" +
+                message="Congrats your submission for issue-'"+title+"' with due date "+duedate+" that you submitted on "+array_list_sol_submitted.get(index).getDate()+" has been accepted!! And you have been " +
                         "awarded "+credits+" credits!!";
             else
                 message="Your submission for issue-'"+title+"' with due date "+duedate+" that you submitted on "+array_list_sol_submitted.get(index).getDate()+" has been rejected!!";
