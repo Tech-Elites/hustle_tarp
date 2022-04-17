@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bggrey"
     tools:context=".redeemTheCredits">
 
     <LinearLayout
@@ -12,97 +13,223 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView13"
+            android:fontFamily="@font/nexabold"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Redeem Credits!!"
+            android:background="@drawable/rounded_edges_bottom"
             android:textSize="40dp"
-            android:gravity="center_horizontal"/>
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="Redeem" />
 
         <LinearLayout
+            android:background="@drawable/border_text_view"
+            android:padding="10dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:id="@+id/leave_holiday"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:textSize="30dp"
-                android:text="Leave Holiday\n1000c" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textVi23ew15"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Leave Holiday" />
+                <TextView
+                    android:id="@+id/textView152"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/yellow"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:textSize="17dp"
+
+                    android:text="1000C" />
+            </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/image345View2"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/black"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_baseline_flight_24" />
+                android:background="@drawable/ic_baseline_flight_24" />
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/border_text_view"
+            android:padding="10dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:id="@+id/leave_coupons"
             android:orientation="horizontal">
             <ImageView
-                android:id="@+id/imageView32"
+                android:id="@+id/image345Vie23w2"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/black"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/coupon_icon" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_baseline_flight_24" />
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="30dp"
-                android:text="Coupons\n700c" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textVi22343ew15"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Coupons" />
+                <TextView
+                    android:id="@+id/textView124152"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/yellow"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:textSize="17dp"
+
+                    android:text="700C" />
+            </LinearLayout>
+
 
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/border_text_view"
+            android:padding="10dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:id="@+id/Subscription"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:textSize="30dp"
-                android:text="Subscription\n500c" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textVi23ew11235"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Subscription" />
+                <TextView
+                    android:id="@+id/textVie123123w152"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/yellow"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:textSize="17dp"
+
+                    android:text="500C" />
+            </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView37"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/ima123123geView2"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/black"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_baseline_flight_24" />
+                android:background="@drawable/subscription_icon" />
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/border_text_view"
+            android:padding="10dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:id="@+id/Accessories"
             android:orientation="horizontal">
+
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView1232"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/black"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/accessories_icon" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_baseline_flight_24" />
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="30dp"
-                android:text="Accessories\n300c" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textV123i233ew15"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Accessories" />
+                <TextView
+                    android:id="@+id/textV1231iew152"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nexabold"
+                    android:textColor="@color/yellow"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:textSize="17dp"
+
+                    android:text="100C" />
+            </LinearLayout>
+
 
 
         </LinearLayout>

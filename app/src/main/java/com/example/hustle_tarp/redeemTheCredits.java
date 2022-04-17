@@ -36,7 +36,7 @@ public class redeemTheCredits extends AppCompatActivity {
                 new AlertDialog.Builder(redeemTheCredits.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
-                        .setMessage("Initiate transaction of 1000c??")
+                        .setMessage("Initiate transaction of 1000c?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -54,7 +54,7 @@ public class redeemTheCredits extends AppCompatActivity {
                 new AlertDialog.Builder(redeemTheCredits.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
-                        .setMessage("Initiate transaction of 700c??")
+                        .setMessage("Initiate transaction of 700c?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -71,7 +71,7 @@ public class redeemTheCredits extends AppCompatActivity {
                 new AlertDialog.Builder(redeemTheCredits.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
-                        .setMessage("Initiate transaction of 300c??")
+                        .setMessage("Initiate transaction of 300c?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -88,7 +88,7 @@ public class redeemTheCredits extends AppCompatActivity {
                 new AlertDialog.Builder(redeemTheCredits.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
-                        .setMessage("Initiate transaction of 500c??")
+                        .setMessage("Initiate transaction of 500c?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -116,8 +116,8 @@ public class redeemTheCredits extends AppCompatActivity {
                         {
                             new AlertDialog.Builder(redeemTheCredits.this)
                                     .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle("Oops!!")
-                                    .setMessage("Insufficient Funds")
+                                    .setTitle("Oops!")
+                                    .setMessage("Insufficient Funds!")
                                     .setPositiveButton("Ok",null)
                                     .show();
 
@@ -131,8 +131,8 @@ public class redeemTheCredits extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     new AlertDialog.Builder(redeemTheCredits.this)
                                             .setIcon(android.R.drawable.ic_dialog_alert)
-                                            .setTitle("Success!!")
-                                            .setMessage("Your transaction was successful!!")
+                                            .setTitle("Success!")
+                                            .setMessage("Your transaction was successful!")
                                             .setPositiveButton("Ok",null)
                                             .show();
 
