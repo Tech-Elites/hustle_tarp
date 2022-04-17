@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,12 +31,16 @@ public class ShowNotifications extends AppCompatActivity {
     ArrayList<String> keys=new ArrayList<>();
     String user_id;
     ArrayAdapter ad;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_notifications);
 
         listViewNotifications=findViewById(R.id.listView_notifications_emp);
+
+        imageView=findViewById(R.id.imageviewNotifications);
+        imageView.setVisibility(View.INVISIBLE);
 
         user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Notifications").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -54,6 +59,13 @@ public class ShowNotifications extends AppCompatActivity {
                     }
                 }
                 ad=new ArrayAdapter(ShowNotifications.this,R.layout.notifications_custom_adaptor_layout_file,notifications);
+
+                if(notifications.size()==0){
+                    imageView.setVisibility(View.VISIBLE);
+                }
+                else{
+                    imageView.setVisibility(View.INVISIBLE);
+                }
                 listViewNotifications.setAdapter(ad);
                 listViewNotifications.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     @Override
