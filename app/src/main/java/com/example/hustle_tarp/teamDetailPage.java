@@ -265,7 +265,7 @@ public class teamDetailPage extends Fragment {
                     res_tag=x.get(i);
                 }
             }
-            most_occ_tag.setText("Most sought after Topic : "+res_tag);
+            most_occ_tag.setText(res_tag);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -293,9 +293,9 @@ public class teamDetailPage extends Fragment {
                     count++;
                 }
             }
-            most_prod_day.setText("The most productive day is : "+most_date);
-            least_prod_day.setText("The least productive day is : "+least_date);
-            average_ov.setText("The average no of issues solved per day is : "+ sum/count);
+            most_prod_day.setText(most_date);
+            least_prod_day.setText(least_date);
+            average_ov.setText(""+ sum/count);
             progressBar.setVisibility(View.INVISIBLE);
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/bggrey"
+        android:background="@drawable/rounded_edges"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <EditText
@@ -13,15 +18,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:textColor="@color/yellow"
+            android:background="@drawable/rounded_edges_dark"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="15dp"
+            android:textColorHint="@color/yellow"
+            android:fontFamily="@font/nexabold"
             android:inputType="textPersonName"
             android:hint="Solution Link"/>
+
         <EditText
             android:layout_marginTop="15dp"
             android:id="@+id/commentAltertDialogSubSolution"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+            android:lines="4"
             android:textSize="15dp"
-            android:inputType="textPersonName"
+            android:textColor="@color/yellow"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/black"
+            android:padding="15dp"
+            android:textColorHint="@color/yellow"
+            android:fontFamily="@font/nexabold"
+            android:inputType="textMultiLine"
             android:gravity="top"
             android:hint="Comments"/>
 
@@ -29,7 +48,20 @@
             android:id="@+id/submitSolutionButtonAlertDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/yellow"
+            android:fontFamily="@font/nexabold"
+            android:onClick="RegisterButton"
+            android:paddingVertical="15dp"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:cornerRadius="10dp" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

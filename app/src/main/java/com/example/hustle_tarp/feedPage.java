@@ -7,10 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -89,7 +93,7 @@ public class feedPage extends Fragment {
     ArrayList<String> issuesId=new ArrayList<>();
     DatabaseReference databaseReference;
 
-    ImageView imageView;
+    ImageView imageView,sandwatchImage;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -100,6 +104,19 @@ public class feedPage extends Fragment {
             imageView=getView().findViewById(R.id.imageviewFeedpage);
             progressBar.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.INVISIBLE);
+            sandwatchImage=getView().findViewById(R.id.sandwatchImageEmployee);
+            new CountDownTimer(300000,2500) {
+                public void onTick(long milliseconds) {
+                    RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                    rotate.setDuration(1700);
+                    rotate.setInterpolator(new LinearInterpolator());
+                    sandwatchImage.startAnimation(rotate);
+                }
+
+                public void onFinish() {
+
+                }
+            }.start();
             //Toast.makeText(getActivity(), "Here in view createdd", Toast.LENGTH_SHORT).show();
             find_the_issues();
         } catch (Exception e) {

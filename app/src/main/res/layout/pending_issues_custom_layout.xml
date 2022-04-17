@@ -10,13 +10,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="262dp"
+        android:background="@drawable/border_text_view"
+        android:backgroundTint="@color/yellow"
         android:padding="10dp"
         tools:layout_editor_absoluteY="213dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:padding="5dp"
+            android:background="@drawable/border_text_view"
             android:orientation="horizontal">
 
             <TextView
@@ -27,6 +30,9 @@
                 android:layout_weight="1"
                 android:scrollbarSize="15dp"
                 android:text="Title"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="@color/black"
+                android:padding="5dp"
                 android:textColor="@color/yellow" />
 
             <TextView
@@ -36,6 +42,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/nexabold"
                 android:layout_weight="1"
+                android:padding="5dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="25dp" />
@@ -44,18 +51,22 @@
 
         <TextView
             android:id="@+id/textView156"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
             android:scrollbarSize="15dp"
             android:text="Description:"
-            android:paddingBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/black"
             android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/pending_issue_desc_custom_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/nexabold"
             android:text="TextView"
@@ -65,12 +76,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_text_view"
+            android:padding="5dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView1562"
-                android:layout_width="80dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges"
+                android:backgroundTint="@color/black"
+                android:padding="5dp"
                 android:fontFamily="@font/nexabold"
                 android:layout_weight="1"
                 android:scrollbarSize="15dp"
@@ -82,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:paddingLeft="10dp"
                 android:fontFamily="@font/nexabold"
                 android:layout_weight="1"
                 android:text="TextView"

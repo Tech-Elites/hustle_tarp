@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".accountPage"
-    android:background="@color/white">
+    android:background="@color/bggrey">
 
 
     <ImageView
@@ -42,22 +42,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/yellow"
             android:layout_margin="10dp"
             >
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="300dp"
+                android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_weight="1"
                 android:backgroundTint="@color/black"
-                android:background="@drawable/ic_baseline_supervised_user_circle_24" />
+                android:background="@drawable/account_page_icon" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center"
+                android:paddingHorizontal="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -65,29 +67,44 @@
                     android:id="@+id/nameOfTheEmployeeAccountDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/yellow"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
                     android:text=""
+                    android:layout_marginRight="5dp"
                     android:textSize="20dp"
-                    android:paddingVertical="10dp"
+                    android:paddingVertical="5dp"
                     android:fontFamily="@font/nexabold"/>
                 <TextView
                     android:id="@+id/noOfCreditsAccountDetails"
                     android:layout_width="match_parent"
-                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/yellow"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
                     android:text=""
                     android:textSize="15dp"
-                    android:paddingVertical="10dp"
+                    android:paddingVertical="5dp"
                     android:fontFamily="@font/nexabold"/>
 
                 <TextView
                     android:textSize="15dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/yellow"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/rounded_edges"
+                    android:backgroundTint="@color/black"
                     android:fontFamily="@font/nexabold"
                     android:id="@+id/noofPendingAppliAccountDetails"
+                    android:layout_marginRight="5dp"
                     android:layout_width="match_parent"
+                    android:layout_marginVertical="5dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="10dp"
+                    android:paddingVertical="5dp"
                     android:text="" />
             </LinearLayout>
         </LinearLayout>
@@ -97,9 +114,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="15dp"
             android:layout_margin="10dp"
             android:fontFamily="@font/nexabold"
+            android:background="@drawable/rounded_edges_bottom"
+            android:backgroundTint="@color/black"
+
             android:text="Pending Issues:"
             />
 
@@ -107,6 +129,9 @@
             android:id="@+id/listViewForPendingApplications"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:divider="@android:color/transparent"
+            android:padding="25dp"
+            android:dividerHeight="10.0sp"
             android:layout_margin="10dp" />
 
         <com.sanojpunchihewa.glowbutton.GlowButton

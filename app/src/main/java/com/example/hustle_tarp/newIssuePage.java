@@ -205,6 +205,6 @@ public class newIssuePage extends Fragment {
 
     private String makeDateString(int day, int month, int year)
     {
-        return day + "/" + Integer.toString(month)+ "/" + year;
+        return day + "-" + Integer.toString(month)+ "-" + year;
     }
 }

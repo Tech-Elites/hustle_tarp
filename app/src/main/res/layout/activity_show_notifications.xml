@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bggrey"
     tools:context=".ShowNotifications">
 
     <ImageView
@@ -20,20 +21,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
-            android:id="@+id/textView11"
+            android:fontFamily="@font/nexabold"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginVertical="40dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Notifications"
-            android:textColor="@color/black"
-            android:textSize="40dp" />
+            android:background="@drawable/rounded_edges_bottom"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="Alerts!" />
 
         <ListView
             android:id="@+id/listView_notifications_emp"
             android:layout_width="match_parent"
+            android:divider="@android:color/transparent"
+            android:padding="25dp"
+            android:dividerHeight="10.0sp"
             android:layout_height="match_parent" />
     </LinearLayout>
 
