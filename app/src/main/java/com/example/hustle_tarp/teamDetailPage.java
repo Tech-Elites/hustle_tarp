@@ -176,113 +176,129 @@ public class teamDetailPage extends Fragment {
         });
     }
     void printchart(ArrayList<String> x,ArrayList<Integer> y){
-        LineChart lineChart=(LineChart) getView().findViewById(R.id.linegraph_emp);
-        ArrayList<Entry> entries=new ArrayList<>();
-        for(int i=0;i<x.size();i++){
-            if(y.get(i)==0){
-                continue;
+        try {
+            LineChart lineChart=(LineChart) getView().findViewById(R.id.linegraph_emp);
+            ArrayList<Entry> entries=new ArrayList<>();
+            for(int i=0;i<x.size();i++){
+                if(y.get(i)==0){
+                    continue;
+                }
+                else{
+                    entries.add(new Entry(i,y.get(i)));
+                }
+                System.out.println(entries);
             }
-            else{
-                entries.add(new Entry(i,y.get(i)));
-            }
-            System.out.println(entries);
+            LineDataSet lineDataSet=new LineDataSet(entries,"Dates");
+            lineDataSet.setColor(Color.RED);
+            lineDataSet.setValueTextSize(10f);
+
+            ArrayList<ILineDataSet> dataSets=new ArrayList<>();
+            dataSets.add(lineDataSet);
+
+            LineData theData = new LineData(dataSets);
+            lineChart.setData(theData);
+            lineChart.getXAxis().setValueFormatter(new MyXAxisFormatter(x));
+            lineChart.getXAxis().setGranularity(1);
+            lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+            lineChart.getAxisRight().setEnabled(false);
+            lineChart.getDescription().setText("No of Issues solved per day");
+            lineChart.setAutoScaleMinMaxEnabled(true);
+            lineChart.setDrawGridBackground(true);
+            lineChart.animateY(2000);
+            lineChart.invalidate();
+            lineChart.refreshDrawableState();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        LineDataSet lineDataSet=new LineDataSet(entries,"Dates");
-        lineDataSet.setColor(Color.RED);
-        lineDataSet.setValueTextSize(10f);
-
-        ArrayList<ILineDataSet> dataSets=new ArrayList<>();
-        dataSets.add(lineDataSet);
-
-        LineData theData = new LineData(dataSets);
-        lineChart.setData(theData);
-        lineChart.getXAxis().setValueFormatter(new MyXAxisFormatter(x));
-        lineChart.getXAxis().setGranularity(1);
-        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        lineChart.getAxisRight().setEnabled(false);
-        lineChart.getDescription().setText("No of Issues solved per day");
-        lineChart.setAutoScaleMinMaxEnabled(true);
-        lineChart.setDrawGridBackground(true);
-        lineChart.animateY(2000);
-        lineChart.invalidate();
-        lineChart.refreshDrawableState();
     }
 
     void printhorizontal_chart(ArrayList<String> x,ArrayList<Integer> y){
-        int count=0;
-        HorizontalBarChart horizontalBarChart=(HorizontalBarChart) getView().findViewById(R.id.hori_bargraph_emp);
-        ArrayList<BarEntry> entries=new ArrayList<>();
-        for(int i=0;i<x.size();i++){
-            if(y.get(i)==0){
-                continue;
+        try {
+            int count=0;
+            HorizontalBarChart horizontalBarChart=(HorizontalBarChart) getView().findViewById(R.id.hori_bargraph_emp);
+            ArrayList<BarEntry> entries=new ArrayList<>();
+            for(int i=0;i<x.size();i++){
+                if(y.get(i)==0){
+                    continue;
+                }
+                else{
+                    count++;
+                    entries.add(new BarEntry(i,y.get(i)));
+                }
             }
-            else{
-                count++;
-                entries.add(new BarEntry(i,y.get(i)));
-            }
+            BarDataSet barDataSet=new BarDataSet(entries,"Topics");
+            barDataSet.setValueTextSize(10f);
+            barDataSet.setColors(new int[] {Color.RED, Color.GREEN, Color.GRAY, Color.BLACK, Color.BLUE});
+
+            ArrayList<IBarDataSet> dataSets=new ArrayList<>();
+            dataSets.add(barDataSet);
+
+            BarData theData = new BarData(dataSets);
+            theData.setBarWidth(0.3f);
+            horizontalBarChart.setData(theData);
+
+            XAxis xAxis= horizontalBarChart.getXAxis();
+            xAxis.setLabelCount(count);
+            xAxis.setValueFormatter(new MyXAxisFormatter(x));
+            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+            xAxis.setEnabled(true);
+
+            horizontalBarChart.getDescription().setText("No of Issues solved");
+            horizontalBarChart.setAutoScaleMinMaxEnabled(true);
+            horizontalBarChart.setDrawGridBackground(true);
+            horizontalBarChart.animateY(2000);
+            horizontalBarChart.invalidate();
+            horizontalBarChart.refreshDrawableState();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        BarDataSet barDataSet=new BarDataSet(entries,"Topics");
-        barDataSet.setValueTextSize(10f);
-        barDataSet.setColors(new int[] {Color.RED, Color.GREEN, Color.GRAY, Color.BLACK, Color.BLUE});
-
-        ArrayList<IBarDataSet> dataSets=new ArrayList<>();
-        dataSets.add(barDataSet);
-
-        BarData theData = new BarData(dataSets);
-        theData.setBarWidth(0.3f);
-        horizontalBarChart.setData(theData);
-
-        XAxis xAxis= horizontalBarChart.getXAxis();
-        xAxis.setLabelCount(count);
-        xAxis.setValueFormatter(new MyXAxisFormatter(x));
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setEnabled(true);
-
-        horizontalBarChart.getDescription().setText("No of Issues solved");
-        horizontalBarChart.setAutoScaleMinMaxEnabled(true);
-        horizontalBarChart.setDrawGridBackground(true);
-        horizontalBarChart.animateY(2000);
-        horizontalBarChart.invalidate();
-        horizontalBarChart.refreshDrawableState();
     }
 
     void getDetails(ArrayList<String> x,ArrayList<Integer> y){
-        most_occ_tag=(TextView) getView().findViewById(R.id.most_sought_tag_emp);
-        int max=0;
-        String res_tag="";
-        for(int i=0;i<x.size();i++){
-            if(y.get(i)>max){
-                max=y.get(i);
-                res_tag=x.get(i);
+        try {
+            most_occ_tag=(TextView) getView().findViewById(R.id.most_sought_tag_emp);
+            int max=0;
+            String res_tag="";
+            for(int i=0;i<x.size();i++){
+                if(y.get(i)>max){
+                    max=y.get(i);
+                    res_tag=x.get(i);
+                }
             }
+            most_occ_tag.setText("Most sought after Topic : "+res_tag);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        most_occ_tag.setText("Most sought after Topic : "+res_tag);
     }
 
     void getDetails1(ArrayList<String> x,ArrayList<Integer> y){
-        most_prod_day=(TextView) getView().findViewById(R.id.most_productive_day_emp);
-        least_prod_day=(TextView) getView().findViewById(R.id.least_productive_day_emp);
-        average_ov=(TextView) getView().findViewById(R.id.average_emp);
-        int max1=0,min1=10000,sum=0,count=0;
-        String most_date="";
-        String least_date="";
-        for(int i=0;i<x.size();i++){
-            if(y.get(i)>max1){
-                max1=y.get(i);
-                most_date=x.get(i);
+        try {
+            most_prod_day=(TextView) getView().findViewById(R.id.most_productive_day_emp);
+            least_prod_day=(TextView) getView().findViewById(R.id.least_productive_day_emp);
+            average_ov=(TextView) getView().findViewById(R.id.average_emp);
+            int max1=0,min1=10000,sum=0,count=0;
+            String most_date="";
+            String least_date="";
+            for(int i=0;i<x.size();i++){
+                if(y.get(i)>max1){
+                    max1=y.get(i);
+                    most_date=x.get(i);
+                }
+                if(y.get(i)<min1 && y.get(i)!=0){
+                    min1=y.get(i);
+                    least_date=x.get(i);
+                }
+                if(y.get(i)!=0){
+                    sum=sum+y.get(i);
+                    count++;
+                }
             }
-            if(y.get(i)<min1 && y.get(i)!=0){
-                min1=y.get(i);
-                least_date=x.get(i);
-            }
-            if(y.get(i)!=0){
-                sum=sum+y.get(i);
-                count++;
-            }
+            most_prod_day.setText("The most productive day is : "+most_date);
+            least_prod_day.setText("The least productive day is : "+least_date);
+            average_ov.setText("The average no of issues solved per day is : "+ sum/count);
+            progressBar.setVisibility(View.INVISIBLE);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        most_prod_day.setText("The most productive day is : "+most_date);
-        least_prod_day.setText("The least productive day is : "+least_date);
-        average_ov.setText("The average no of issues solved per day is : "+ sum/count);
-        progressBar.setVisibility(View.INVISIBLE);
     }
 }
