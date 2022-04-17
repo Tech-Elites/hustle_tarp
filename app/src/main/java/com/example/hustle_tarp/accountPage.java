@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -87,6 +88,9 @@ public class accountPage extends Fragment {
     pendingIssueCustomAdaptor pendingIssueCustomAdaptor;
     ArrayList<pendingIssue> pendingIssueArrayList=new ArrayList<>();
     HashMap<String,String> issue_id_to_due_date=new HashMap<>();
+
+    ImageView imageView;
+
     Button redeemButton;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -98,6 +102,8 @@ public class accountPage extends Fragment {
         progressBar=getView().findViewById(R.id.employeeAccountDetailsProgress);
         progressBar.setVisibility(View.VISIBLE);
         listViewPending=getView().findViewById(R.id.listViewForPendingApplications);
+        imageView=getView().findViewById(R.id.imageviewAccountPage);
+        imageView.setVisibility(View.INVISIBLE);
         redeemButton=getView().findViewById(R.id.redeemButton);
         redeemButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +205,12 @@ public class accountPage extends Fragment {
     {
         try {
             progressBar.setVisibility(View.INVISIBLE);
+            if(pendingIssueArrayList.size()==0){
+                imageView.setVisibility(View.VISIBLE);
+            }
+            else{
+                imageView.setVisibility(View.INVISIBLE);
+            }
             pendingIssueCustomAdaptor=new pendingIssueCustomAdaptor(getActivity(),pendingIssueArrayList);
             listViewPending.setAdapter(pendingIssueCustomAdaptor);
         } catch (Exception e) {
