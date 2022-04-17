@@ -1,5 +1,6 @@
 package com.example.hustle_tarp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -89,6 +91,7 @@ public class accountPage extends Fragment {
 
     ImageView imageView;
 
+    Button redeemButton;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -101,6 +104,13 @@ public class accountPage extends Fragment {
         listViewPending=getView().findViewById(R.id.listViewForPendingApplications);
         imageView=getView().findViewById(R.id.imageviewAccountPage);
         imageView.setVisibility(View.INVISIBLE);
+        redeemButton=getView().findViewById(R.id.redeemButton);
+        redeemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redeemButton();
+            }
+        });
         getName();
     }
 
@@ -206,5 +216,10 @@ public class accountPage extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void redeemButton()
+    {
+        startActivity(new Intent(getActivity(),redeemTheCredits.class));
     }
 }

@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
-        <activity android:name=".ShowNotifications"
-
-
-            android:theme="@style/Theme.Hustle_TARP.NoActionBar"/>
+        <activity android:name=".redeemTheCredits"></activity>
+        <activity
+            android:name=".ShowNotifications"
+            android:theme="@style/Theme.Hustle_TARP.NoActionBar" />
         <activity android:name=".TeamDetailsAdminEachMember" />
         <activity
             android:name=".viewExpandedIssueAdmin"
