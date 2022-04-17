@@ -5,99 +5,180 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".viewExpandedIssueAdmin">
+
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="100dp"
-        android:id="@+id/title_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:padding="15dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/desc_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:padding="15dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/credits_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:padding="15dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/link_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:padding="15dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/duedate_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:padding="15dp"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/tags_admin_expanded_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:padding="15dp"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/all_solutions_text_prompt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nexabold"
-        android:textColor="@color/lBlack"
-        android:textSize="35dp"
-        android:padding="15dp"
-        android:text="All Solutions-" />
-
-        <ListView
-            android:id="@+id/listView_submitted_solutions_expanded_view_admin"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edges_bottom"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
 
-        </ListView>
+            <TextView
+                android:id="@+id/title_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingVertical="20dp"
+                android:fontFamily="@font/nexabold"
+                android:text="TextView"
+                android:textColor="@color/yellow"
+                android:textSize="40dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/asdasdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:paddingHorizontal="15dp"
+                android:text="Description:"
+                android:textColor="@color/yellow"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/desc_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/asdasdad2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:paddingHorizontal="15dp"
+                android:text="Credits:"
+                android:textColor="@color/yellow"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/credits_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/asdasdad23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:paddingHorizontal="15dp"
+                android:text="Link:"
+                android:textColor="@color/yellow"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/link_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/asdasdad4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:paddingHorizontal="15dp"
+                android:text="Due:"
+                android:textColor="@color/yellow"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/duedate_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/asdasdad5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:paddingHorizontal="15dp"
+                android:text="Tags:"
+                android:textColor="@color/yellow"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tags_admin_expanded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/all_solutions_text_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/nexabold"
+                android:padding="15dp"
+                android:text="All Solutions-"
+                android:textColor="@color/colorAccent"
+                android:textSize="35dp" />
+
+            <ListView
+                android:id="@+id/listView_submitted_solutions_expanded_view_admin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
 
 
-
+        </LinearLayout>
     </LinearLayout>
+
+
     <ProgressBar
         android:id="@+id/progressBarTextPromptAdminExpandedViewIssue"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="470dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="400dp"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageviewExpandedIssue"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        android:background="@drawable/nothing2_image"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,26 +46,34 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
     ArrayList<Integer> tagsPoints;
     ArrayList<Integer> datesPoints;
     DatabaseReference databaseReference;
-    TextView most_occ_tag,most_prod_day,least_prod_day;
+    TextView most_occ_tag,most_prod_day,least_prod_day,average_ov;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_details_admin_each_member);
-
-        Bundle b = getIntent().getExtras();
-        uid=b.getString("uid");
-        tags=new ArrayList<>();
-        tagsPoints=new ArrayList<>();
-        dates=new ArrayList<>();
-        datesPoints=new ArrayList<>();
-        try{
-            find_dates();
-            find();
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
+        progressBar=findViewById(R.id.progressBarTeamDetailsAdminEachMember);
+        progressBar.setVisibility(View.VISIBLE);
+        new CountDownTimer(500,500){
+            public void onTick(long milliseconds){
+            }
+            public void onFinish(){
+                Bundle b = getIntent().getExtras();
+                uid=b.getString("uid");
+                tags=new ArrayList<>();
+                tagsPoints=new ArrayList<>();
+                dates=new ArrayList<>();
+                datesPoints=new ArrayList<>();
+                try{
+                    find_dates();
+                    find();
+                }
+                catch (Exception e){
+                    System.out.println(e);
+                }
+            }
+        }.start();
     }
 
     public class MyXAxisFormatter extends ValueFormatter {
@@ -147,6 +156,9 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
         lineChart.getXAxis().setGranularity(1);
         lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         lineChart.getAxisRight().setEnabled(false);
+        lineChart.getDescription().setText("No of Issues solved per day");
+        lineChart.setAutoScaleMinMaxEnabled(true);
+        lineChart.setDrawGridBackground(true);
         lineChart.animateY(2000);
         lineChart.invalidate();
         lineChart.refreshDrawableState();
@@ -184,6 +196,7 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
 
         horizontalBarChart.getDescription().setText("No of Issues solved");
         horizontalBarChart.setAutoScaleMinMaxEnabled(true);
+        horizontalBarChart.setDrawGridBackground(true);
         horizontalBarChart.animateY(2000);
         horizontalBarChart.invalidate();
         horizontalBarChart.refreshDrawableState();
@@ -205,7 +218,8 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
     void getDetails1(ArrayList<String> x,ArrayList<Integer> y){
         most_prod_day=(TextView) findViewById(R.id.most_productive_day);
         least_prod_day=(TextView) findViewById(R.id.least_productive_day);
-        int max1=0,min1=10000;
+        average_ov=(TextView) findViewById(R.id.average);
+        int max1=0,min1=10000,sum=0,count=0;
         String most_date="";
         String least_date="";
         for(int i=0;i<x.size();i++){
@@ -217,8 +231,14 @@ public class TeamDetailsAdminEachMember extends AppCompatActivity {
                 min1=y.get(i);
                 least_date=x.get(i);
             }
+            if(y.get(i)!=0){
+                sum=sum+y.get(i);
+                count++;
+            }
         }
         most_prod_day.setText("The most productive day is : "+most_date);
         least_prod_day.setText("The least productive day is : "+least_date);
+        average_ov.setText("The average no of issues solved per day is : "+ sum/count);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
