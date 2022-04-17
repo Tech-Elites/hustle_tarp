@@ -7,9 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -77,7 +81,8 @@ public class feedPageAdmin extends Fragment {
     DatabaseReference databaseReference;
     ProgressBar progressBar;
 
-    ImageView imageView;
+    ImageView imageView,sandwatchImage;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -85,7 +90,20 @@ public class feedPageAdmin extends Fragment {
             all_issues_list_view=getView().findViewById(R.id.all_issues_feed_admin);
             progressBar=getView().findViewById(R.id.progressBarFeedPageAdmin);
             imageView=getView().findViewById(R.id.imageviewFeedpageAdmin);
+            sandwatchImage=getView().findViewById(R.id.sandwatchImage);
             imageView.setVisibility(View.INVISIBLE);
+            new CountDownTimer(300000,2500) {
+                public void onTick(long milliseconds) {
+                    RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                    rotate.setDuration(1700);
+                    rotate.setInterpolator(new LinearInterpolator());
+                    sandwatchImage.startAnimation(rotate);
+                }
+
+                public void onFinish() {
+
+                }
+            }.start();
             progressBar.setVisibility(View.VISIBLE);
             find_the_issues();
             Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
@@ -124,6 +142,8 @@ public class feedPageAdmin extends Fragment {
             }
             else{
                 imageView.setVisibility(View.INVISIBLE);
+
+
             }
             customAdaptorViewIssues=new CustomAdaptorViewIssues(getActivity(),issuesArrayList);
             all_issues_list_view.setAdapter(customAdaptorViewIssues);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bggrey"
     tools:context=".leaderboardPageAdmin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,47 +34,28 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edges_bottom"
             android:textSize="40dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:padding="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
-            android:layout_marginHorizontal="15dp"
             android:text="Leaderboard" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize="20dp"
-                android:padding="5dp"
-                android:textColor="@color/black"
-                android:background="@drawable/border_bottom"
-                android:fontFamily="@font/nexabold"
-                android:text="Name" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nexabold"
-                android:background="@drawable/border_bottom"
-                android:layout_weight="1"
-                android:padding="5dp"
-                android:text="Points" />
-        </LinearLayout>
 
         <ListView
             android:id="@+id/leaderboardPageListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"
+            android:layout_height="400dp" >
+
+        </ListView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/arenabg_icon"/>
     </LinearLayout>
 </FrameLayout>

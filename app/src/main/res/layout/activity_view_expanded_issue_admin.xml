@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bggrey"
     tools:context=".viewExpandedIssueAdmin">
 
     <LinearLayout
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:paddingVertical="20dp"
+                android:paddingVertical="15dp"
                 android:fontFamily="@font/nexabold"
                 android:text="TextView"
                 android:textColor="@color/yellow"
@@ -40,8 +41,10 @@
 
             <TextView
                 android:id="@+id/asdasdad"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges_dark"
+                android:paddingVertical="2dp"
                 android:fontFamily="@font/nexabold"
                 android:paddingHorizontal="15dp"
                 android:text="Description:"
@@ -53,15 +56,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nexabold"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/asdasdad2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges_dark"
+                android:paddingVertical="2dp"
                 android:fontFamily="@font/nexabold"
                 android:paddingHorizontal="15dp"
                 android:text="Credits:"
@@ -80,8 +85,10 @@
 
             <TextView
                 android:id="@+id/asdasdad23"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges_dark"
+                android:paddingVertical="2dp"
                 android:fontFamily="@font/nexabold"
                 android:paddingHorizontal="15dp"
                 android:text="Link:"
@@ -100,8 +107,10 @@
 
             <TextView
                 android:id="@+id/asdasdad4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges_dark"
+                android:paddingVertical="2dp"
                 android:fontFamily="@font/nexabold"
                 android:paddingHorizontal="15dp"
                 android:text="Due:"
@@ -120,8 +129,10 @@
 
             <TextView
                 android:id="@+id/asdasdad5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edges_dark"
+                android:paddingVertical="2dp"
                 android:fontFamily="@font/nexabold"
                 android:paddingHorizontal="15dp"
                 android:text="Tags:"
@@ -143,15 +154,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_edges_bottom"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/nexabold"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="All Solutions-"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/yellow"
                 android:textSize="35dp" />
 
             <ListView
                 android:id="@+id/listView_submitted_solutions_expanded_view_admin"
                 android:layout_width="match_parent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
                 android:layout_height="match_parent">
 
             </ListView>
@@ -174,6 +189,7 @@
 
     <ImageView
         android:id="@+id/imageviewExpandedIssue"
+        android:layout_marginBottom="10dp"
         android:layout_width="150dp"
         android:layout_height="175dp"
         android:background="@drawable/nothing2_image_back"

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bggrey"
     tools:context=".feedPageAdmin">
 
     <ProgressBar
@@ -33,27 +33,49 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:text="Pending Feed"
-            android:textColor="@color/black"
-            android:textSize="40dp"
-            android:fontFamily="@font/nexabold"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:ems="10"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"/>
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:background="@drawable/rounded_edges_bottom"
+                android:id="@+id/textView10"
+                android:text="Pending Feed"
+                android:textColor="@color/white"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="20dp"
+                android:textSize="40dp"
+                android:fontFamily="@font/nexabold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:id="@+id/sandwatchImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/sandwatchpng"
+                />
+
+        </LinearLayout>
 
         <ListView
             android:id="@+id/all_issues_feed_admin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="25dp"
+            android:layout_height="450dp"
+            android:dividerHeight="8dp"
+            android:divider="@android:color/transparent"
+            android:padding="8dp"
             >
 
         </ListView>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
