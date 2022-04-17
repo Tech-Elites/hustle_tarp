@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -87,13 +88,17 @@ public class feedPage extends Fragment {
     ArrayList<Issues> issuesArrayList=new ArrayList<>();
     ArrayList<String> issuesId=new ArrayList<>();
     DatabaseReference databaseReference;
+
+    ImageView imageView;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //Log.println("here");
         listView_viewIssues=getView().findViewById(R.id.view_issue_listView);
         progressBar=getView().findViewById(R.id.progressBarEmployeeFeed);
+        imageView=getView().findViewById(R.id.imageviewFeedpage);
         progressBar.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
         //Toast.makeText(getActivity(), "Here in view createdd", Toast.LENGTH_SHORT).show();
         find_the_issues();
     }
@@ -168,6 +173,12 @@ public class feedPage extends Fragment {
     void populateTheList(){
         try {
             progressBar.setVisibility(View.INVISIBLE);
+            if(issuesArrayList.size()==0){
+                imageView.setVisibility(View.VISIBLE);
+            }
+            else{
+                imageView.setVisibility(View.INVISIBLE);
+            }
             customAdaptorViewIssues=new CustomAdaptorViewIssues(getActivity(),issuesArrayList);
             listView_viewIssues.setAdapter(customAdaptorViewIssues);
             listView_viewIssues.setOnItemClickListener(new AdapterView.OnItemClickListener() {

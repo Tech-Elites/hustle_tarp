@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -45,6 +46,8 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
     ArrayList<String> sol_submitted_parent=new ArrayList<>();
     ProgressBar progressBar;
     customAdaptorAdminExpandedViewLIstView customAdaptorAdminExpandedViewLIstView;
+
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +73,12 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
         duedate_expandedViewIssuesAdmin =findViewById(R.id.duedate_admin_expanded_view);
         title_expandedViewIssuesAdmin.setText("Issue: "+title);
         desc_expandedViewIssuesAdmin.setText(desc);
-        credits_expandedViewIssuesAdmin.setText("Credits: "+credits);
+        credits_expandedViewIssuesAdmin.setText(credits);
         link_expandedViewIssuesAdmin.setText(link);
-        duedate_expandedViewIssuesAdmin.setText("Due:"+duedate);
+        duedate_expandedViewIssuesAdmin.setText(duedate);
+
+        imageView=findViewById(R.id.imageviewExpandedIssue);
+        imageView.setVisibility(View.INVISIBLE);
         find_all_sols();
 
     }
@@ -120,6 +126,12 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
 
         try {
             progressBar.setVisibility(View.INVISIBLE);
+            if(userNames.size()==0){
+                imageView.setVisibility(View.VISIBLE);
+            }
+            else{
+                imageView.setVisibility(View.INVISIBLE);
+            }
             customAdaptorAdminExpandedViewLIstView=new customAdaptorAdminExpandedViewLIstView(this,userNames);
             list_sol_submitted_prompt.setAdapter(customAdaptorAdminExpandedViewLIstView);
             list_sol_submitted_prompt.setOnItemClickListener(new AdapterView.OnItemClickListener() {

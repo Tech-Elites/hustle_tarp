@@ -11,20 +11,17 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_baseline_arrow_right_24" />
-
         <TextView
             android:id="@+id/view_xyz_solution_prompt"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:gravity="center_vertical"
             android:layout_height="50dp"
             android:textSize="15dp"
+            android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+            android:drawableTint="@color/colorAccent"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nexabold"
+            android:scrollbarSize="20dp"
             android:text="TextView" />
 
     </LinearLayout>

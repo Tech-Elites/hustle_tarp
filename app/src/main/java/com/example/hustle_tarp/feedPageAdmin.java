@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -75,11 +76,15 @@ public class feedPageAdmin extends Fragment {
     ArrayList<String> issuesId=new ArrayList<>();
     DatabaseReference databaseReference;
     ProgressBar progressBar;
+
+    ImageView imageView;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         all_issues_list_view=getView().findViewById(R.id.all_issues_feed_admin);
         progressBar=getView().findViewById(R.id.progressBarFeedPageAdmin);
+        imageView=getView().findViewById(R.id.imageviewFeedpageAdmin);
+        imageView.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
         find_the_issues();
         Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
@@ -110,6 +115,12 @@ public class feedPageAdmin extends Fragment {
     void populateTheList(){
         try {
             progressBar.setVisibility(View.INVISIBLE);
+            if(issuesArrayList.size()==0){
+                imageView.setVisibility(View.VISIBLE);
+            }
+            else{
+                imageView.setVisibility(View.INVISIBLE);
+            }
             customAdaptorViewIssues=new CustomAdaptorViewIssues(getActivity(),issuesArrayList);
             all_issues_list_view.setAdapter(customAdaptorViewIssues);
             all_issues_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
