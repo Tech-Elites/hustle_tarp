@@ -12,7 +12,7 @@
     <color name="colorPrimary">#5A5A5A</color>
     <color name="colorPrimaryDark">#0F9D58</color>
     <color name="colorAccent">#05af9b</color>
-    <color name="backgroundLogin">#3C3F41</color>
+    <color name="backgroundLogin">#323933</color>
     <color name="loginYellow">#ffd064</color>
     <color name="loginRedButtons">#ff5464</color>
     <color name="bggrey">#E3E3E3</color>

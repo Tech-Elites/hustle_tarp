@@ -47,15 +47,15 @@
             android:layout_width="match_parent"
             android:divider="@android:color/transparent"
             android:dividerHeight="5dp"
-            android:layout_height="400dp" >
+            android:layout_height="350dp">
 
         </ListView>
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
+            android:layout_width="260dp"
+            android:layout_height="210dp"
+            android:layout_gravity="right"
             android:background="@drawable/arenabg_icon"/>
     </LinearLayout>
 </FrameLayout>

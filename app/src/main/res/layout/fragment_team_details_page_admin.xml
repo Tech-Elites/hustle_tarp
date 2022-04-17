@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bggrey"
     tools:context=".teamDetailsPageAdmin" >
 
     <ProgressBar
@@ -29,20 +29,21 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/team_icon"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/black"
+            android:drawableTint="@color/white"
             android:fontFamily="@font/nexabold"
             android:text="Team Details"
             android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="10dp"
             android:ems="10"
+            android:background="@drawable/rounded_edges_bottom"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="40dp"
             android:textSize="40dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300dp"
             android:orientation="horizontal">
 
             <ListView
@@ -50,6 +51,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="5dp"
+
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
                 android:layout_weight="1" >
 
             </ListView>
@@ -58,8 +62,19 @@
                 android:id="@+id/teamDetalsAdminList2"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="right"
+            android:background="@drawable/team_det_admin_icon"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -130,28 +130,32 @@ public class teamDetailsPageAdmin extends Fragment {
     }
 
     void show(){
-        customAdaptorTeamDetailsAdmin1=new CustomAdaptorTeamDetailsAdmin(getActivity(),leaderboardList1);
-        customAdaptorTeamDetailsAdmin2=new CustomAdaptorTeamDetailsAdmin(getActivity(),leaderboardList2);
-        listView1=getView().findViewById(R.id.teamDetalsAdminList1);
-        listView1.setAdapter(customAdaptorTeamDetailsAdmin1);
-        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(getActivity(),TeamDetailsAdminEachMember.class);
-                intent.putExtra("uid",uidList1.get(i));
-                startActivity(intent);
-            }
-        });
-        listView2=getView().findViewById(R.id.teamDetalsAdminList2);
-        listView2.setAdapter(customAdaptorTeamDetailsAdmin2);
-        listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(getActivity(),TeamDetailsAdminEachMember.class);
-                intent.putExtra("uid",uidList2.get(i));
-                startActivity(intent);
-            }
-        });
-        pb.setVisibility(View.INVISIBLE);
+        try {
+            customAdaptorTeamDetailsAdmin1=new CustomAdaptorTeamDetailsAdmin(getActivity(),leaderboardList1);
+            customAdaptorTeamDetailsAdmin2=new CustomAdaptorTeamDetailsAdmin(getActivity(),leaderboardList2);
+            listView1=getView().findViewById(R.id.teamDetalsAdminList1);
+            listView1.setAdapter(customAdaptorTeamDetailsAdmin1);
+            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent=new Intent(getActivity(),TeamDetailsAdminEachMember.class);
+                    intent.putExtra("uid",uidList1.get(i));
+                    startActivity(intent);
+                }
+            });
+            listView2=getView().findViewById(R.id.teamDetalsAdminList2);
+            listView2.setAdapter(customAdaptorTeamDetailsAdmin2);
+            listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent=new Intent(getActivity(),TeamDetailsAdminEachMember.class);
+                    intent.putExtra("uid",uidList2.get(i));
+                    startActivity(intent);
+                }
+            });
+            pb.setVisibility(View.INVISIBLE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

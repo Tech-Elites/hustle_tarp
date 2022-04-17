@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bggrey"
     tools:context=".TeamDetailsAdminEachMember">
 
     <ProgressBar
@@ -36,8 +37,21 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nexabold"
                     android:padding="20dp"
-                    android:text="No of Issues Solved according to the dates"
-                    android:textColor="@color/lBlack"
+                    android:text="Analytics"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_edges_bottom"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:padding="20dp"
+                    android:text="Number of issues solved per day:"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                    android:drawableTint="@color/black"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -54,8 +68,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nexabold"
                     android:padding="20dp"
-                    android:text="No of Issues Solved according to the topics"
-                    android:textColor="@color/lBlack"
+                    android:text="Number of issues solved per topic:"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                    android:drawableTint="@color/black"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -71,10 +87,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nexabold"
-                    android:padding="20dp"
-                    android:text="Analysis Report : "
-                    android:textColor="@color/lBlack"
+                    android:padding="10dp"
+                    android:text="Analysis Report:"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_edges_bottom"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
                     android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/asdasd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/yellow"
+                    android:text="Most sought after topic:"
+                    android:textSize="12dp"
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/rounded_edges_dark"
+                    android:layout_marginHorizontal="5dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -84,8 +119,24 @@
                     android:fontFamily="@font/nexabold"
                     android:paddingLeft="20dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/lBlack"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/asdasd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/yellow"
+                    android:text="The least productive day is:"
+                    android:textSize="12dp"
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/rounded_edges_dark"
+                    android:layout_marginHorizontal="5dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -95,8 +146,25 @@
                     android:fontFamily="@font/nexabold"
                     android:paddingLeft="20dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/lBlack"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/asdasd3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/yellow"
+                    android:text="The most productive day is:"
+                    android:textSize="12dp"
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/rounded_edges_dark"
+                    android:layout_marginHorizontal="5dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -106,8 +174,25 @@
                     android:fontFamily="@font/nexabold"
                     android:paddingLeft="20dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/lBlack"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/asdasd44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexabold"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/yellow"
+                    android:text="The average number of issues solved per day is:"
+                    android:textSize="12dp"
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/rounded_edges_dark"
+                    android:layout_marginHorizontal="5dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -118,8 +203,8 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingBottom="20dp"
-                    android:textColor="@color/lBlack"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
