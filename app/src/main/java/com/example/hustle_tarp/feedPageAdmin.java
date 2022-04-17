@@ -81,13 +81,17 @@ public class feedPageAdmin extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        all_issues_list_view=getView().findViewById(R.id.all_issues_feed_admin);
-        progressBar=getView().findViewById(R.id.progressBarFeedPageAdmin);
-        imageView=getView().findViewById(R.id.imageviewFeedpageAdmin);
-        imageView.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
-        find_the_issues();
-        Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+        try {
+            all_issues_list_view=getView().findViewById(R.id.all_issues_feed_admin);
+            progressBar=getView().findViewById(R.id.progressBarFeedPageAdmin);
+            imageView=getView().findViewById(R.id.imageviewFeedpageAdmin);
+            imageView.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+            find_the_issues();
+            Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     void find_the_issues(){
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Issues");

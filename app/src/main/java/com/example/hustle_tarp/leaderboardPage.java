@@ -111,11 +111,15 @@ public class leaderboardPage extends Fragment {
     }
 
     void show(){
-        Collections.sort(leaderboardList, Collections.reverseOrder());
-        customAdaptorLeaderboard=new CustomAdaptorLeaderboard(getActivity(),leaderboardList);
-        listView=getView().findViewById(R.id.leaderboardEmployeeList);
-        listView.setAdapter(customAdaptorLeaderboard);
-        pb.setVisibility(View.INVISIBLE);
+        try {
+            Collections.sort(leaderboardList, Collections.reverseOrder());
+            customAdaptorLeaderboard=new CustomAdaptorLeaderboard(getActivity(),leaderboardList);
+            listView=getView().findViewById(R.id.leaderboardEmployeeList);
+            listView.setAdapter(customAdaptorLeaderboard);
+            pb.setVisibility(View.INVISIBLE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
