@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hustle_TARP">
-        <activity android:name=".redeemTheCredits"></activity>
+        <activity android:name=".redeemTheCredits"
+            android:theme="@style/Theme.Hustle_TARP.NoActionBar"></activity>
         <activity
             android:name=".ShowNotifications"
             android:theme="@style/Theme.Hustle_TARP.NoActionBar" />
-        <activity android:name=".TeamDetailsAdminEachMember" />
+        <activity android:name=".TeamDetailsAdminEachMember"
+            android:theme="@style/Theme.Hustle_TARP.NoActionBar" />
         <activity
             android:name=".viewExpandedIssueAdmin"
             android:label="@string/title_activity_view_expanded_issue_admin"

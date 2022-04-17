@@ -15,16 +15,34 @@
         android:padding="15dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexatextbold"
-            android:paddingHorizontal="20dp"
+            android:paddingLeft="20dp"
             android:paddingVertical="30dp"
             android:text="Hustle Up!"
             android:textColor="@color/black"
             android:textSize="50dp" />
+
+        <ImageView
+            android:layout_height="80dp"
+
+            android:layout_width="80dp"
+            android:background="@drawable/bolt_icon"
+            android:backgroundTint="@color/black"
+            android:layout_gravity="center_vertical"
+            />
+
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +68,7 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="#CACACA"
                 android:textSize="15dp" />
 
             <EditText
@@ -69,7 +87,7 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="#CACACA"
                 android:textSize="15dp" />
 
             <LinearLayout
@@ -95,21 +113,23 @@
                     android:padding="10dp"
                     android:text=""
                     android:textColor="@color/white"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="#CACACA"
                     android:textSize="15dp" />
 
                 <Button
                     android:id="@+id/registerDobButton"
                     android:layout_width="130dp"
+                    android:paddingLeft="15dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@color/black"
+                    android:background="@drawable/rounded_edges"
                     android:drawableLeft="@drawable/dob_icon"
                     android:drawablePadding="10dp"
                     android:textAlignment="textStart"
                     android:drawableTint="@color/white"
+                    android:backgroundTint="@color/yellow"
                     android:hint="DOB"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/white"
                     android:onClick="takeTime"
                     />
             </LinearLayout>
@@ -120,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/yellow"
                 android:fontFamily="@font/nexatextbold"
                 android:onClick="registerButton"
                 android:padding="25dp"
