@@ -54,7 +54,7 @@ public class LoginPage extends AppCompatActivity {
                     if(task.isSuccessful()) {
                         FirebaseUser u = firebaseAuth.getCurrentUser();
                         if (u != null) {
-                            Toast.makeText(LoginPage.this, "here", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPage.this, "Welcome user!", Toast.LENGTH_SHORT).show();
                             FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("Workers").child(u.getUid()).
                                     get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override

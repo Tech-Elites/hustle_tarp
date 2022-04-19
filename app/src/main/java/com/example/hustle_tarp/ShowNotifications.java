@@ -55,7 +55,7 @@ public class ShowNotifications extends AppCompatActivity {
                     {
                         notifications.add(n.getMessage());
                         keys.add(snapshot1.getKey());
-                        Toast.makeText(ShowNotifications.this, ""+snapshot1.getKey(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ShowNotifications.this, ""+snapshot1.getKey(), Toast.LENGTH_SHORT).show();
                     }
                 }
                 ad=new ArrayAdapter(ShowNotifications.this,R.layout.notifications_custom_adaptor_layout_file,notifications);

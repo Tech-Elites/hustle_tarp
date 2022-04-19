@@ -106,7 +106,7 @@ public class feedPageAdmin extends Fragment {
             }.start();
             progressBar.setVisibility(View.VISIBLE);
             find_the_issues();
-            Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

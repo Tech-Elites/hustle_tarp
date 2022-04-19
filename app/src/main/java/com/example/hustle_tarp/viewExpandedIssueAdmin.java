@@ -44,7 +44,7 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
     ArrayList<solSubmitted> array_list_sol_submitted=new ArrayList<>();
     ArrayList<String> userNames=new ArrayList<>();
     ArrayList<String> sol_submitted_parent=new ArrayList<>();
-    ProgressBar progressBar;
+    ProgressBar progressBar,progressBarMain;
     customAdaptorAdminExpandedViewLIstView customAdaptorAdminExpandedViewLIstView;
 
     ImageView imageView;
@@ -66,6 +66,8 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
         tags_expandedViewIssuesAdmin.setText(tags);
         progressBar=findViewById(R.id.progressBarTextPromptAdminExpandedViewIssue);
         progressBar.setVisibility(View.VISIBLE);
+        progressBarMain=findViewById(R.id.progressBarTextPromptAdminExpandedViewIssueMain);
+        progressBarMain.setVisibility(View.INVISIBLE);
         title_expandedViewIssuesAdmin =findViewById(R.id.title_admin_expanded_view);
         desc_expandedViewIssuesAdmin =findViewById(R.id.desc_admin_expanded_view);
         credits_expandedViewIssuesAdmin =findViewById(R.id.credits_admin_expanded_view);
@@ -173,7 +175,7 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
     {
         String date = array_list_sol_submitted.get(pos).getDate();
         //Toast.makeText(viewExpandedIssueAdmin.this, ""+array_list_sol_submitted.get(pos).getUserId(), Toast.LENGTH_SHORT).show();
-        //FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("info-employee").child(array_list_sol_submitted.get(pos).getUserId()).child("tags").child("devansh randi").setValue(10);
+        progressBarMain.setVisibility(View.VISIBLE);
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("Team Alpha").child("info-employee").child(array_list_sol_submitted.get(pos).getUserId());
         databaseReference.get().addOnCompleteListener(
                 new OnCompleteListener<DataSnapshot>() {
@@ -223,7 +225,7 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful())
                                     {
-                                        Toast.makeText(viewExpandedIssueAdmin.this, "Success", Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(viewExpandedIssueAdmin.this, "Success", Toast.LENGTH_SHORT).show();
                                         push_notifications(array_list_sol_submitted.get(pos).getUserId());
                                     }
                                 }
@@ -305,6 +307,7 @@ public class viewExpandedIssueAdmin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
+                            progressBarMain.setVisibility(View.INVISIBLE);
                             finish();
                             startActivity(new Intent(getApplicationContext(),adminLandingPage.class));
                         }

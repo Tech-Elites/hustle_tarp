@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -88,12 +89,13 @@ public class newIssuePage extends Fragment {
     Button b;
     private DatePickerDialog datePickerDialog;
     Button button;
-
+    ProgressBar progressBar;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initDatePicker();
-
+        progressBar=getView().findViewById(R.id.progressBarNewIssue);
+        progressBar.setVisibility(View.INVISIBLE);
         button = (Button) getView().findViewById(R.id.issueDueDateBut);
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -127,6 +129,7 @@ public class newIssuePage extends Fragment {
         description=description_editText.getText().toString();
         credits=credits_editText.getText().toString();
         link=link_editText.getText().toString();
+        progressBar.setVisibility(View.VISIBLE);
         tags=tags_editText.getText().toString();
         if(!TextUtils.isEmpty(title)&&!TextUtils.isEmpty(description)&&!TextUtils.isEmpty(credits)&&!TextUtils.isEmpty(title)&&
                 !TextUtils.isEmpty(title)&&!TextUtils.isEmpty(tags)){
@@ -137,6 +140,7 @@ public class newIssuePage extends Fragment {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful())
                     {
+                        progressBar.setVisibility(View.INVISIBLE);
                         new AlertDialog.Builder(getContext())
                                 .setIcon(android.R.drawable.ic_dialog_alert)
                                 .setMessage("Issue has been raised successfully")
@@ -154,12 +158,14 @@ public class newIssuePage extends Fragment {
                                 })
                                 .show();
                     }
+                    else
+                        progressBar.setVisibility(View.INVISIBLE);
                 }
             });
         }
         else
         {
-
+            progressBar.setVisibility(View.INVISIBLE);
             new AlertDialog.Builder(getContext())
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setMessage("Fill all the details!!")

@@ -93,7 +93,7 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
                         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                         solSubmitted solSubmitted=new solSubmitted(id,name,link_solution,comments_solution,issue_id,date);
                         HashMap<String,String> hashMap=solSubmitted.getHashMap();
-                        Toast.makeText(ViewExpandedIssueEmployee.this, ""+hashMap, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ViewExpandedIssueEmployee.this, ""+hashMap, Toast.LENGTH_SHORT).show();
                         firebaseDatabase.getReference().child("Team Alpha").child("solSubmitted").push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -137,7 +137,7 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
         link_expandedViewIssuesEmployee.setText(link);
         duedate_expandedViewIssuesEmployee.setText("Due:"+duedate);
         tags_expandedViewIssuesEmployee.setText(tags);
-        Toast.makeText(this, ""+issue_id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, ""+issue_id, Toast.LENGTH_SHORT).show();
     }
     //overriding the back button as the previous activity is finished
     @Override
