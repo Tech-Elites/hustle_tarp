@@ -117,7 +117,7 @@ public class teamDetailPage extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         progressBar=getView().findViewById((R.id.progressBarTeamDetails));
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     public class MyXAxisFormatter extends ValueFormatter {

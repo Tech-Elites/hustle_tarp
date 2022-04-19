@@ -35,7 +35,7 @@ public class ViewExpandedIssueEmployee extends AppCompatActivity {
     link_expandedViewIssuesEmployee,duedate_expandedViewIssuesEmployee;
     public void finishButtonEmployee(View v)
     {
-        Toast.makeText(this, "here in employee", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "here in employee", Toast.LENGTH_SHORT).show();
         databaseReference=firebaseDatabase.getReference().child("Team Alpha").child("solSubmitted");
         LayoutInflater factory = LayoutInflater.from(this);
         final View submitSolDialogView = factory.inflate(R.layout.submit_sol_employee_custom_alert_dialog, null);
