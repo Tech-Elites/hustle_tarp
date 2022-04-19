@@ -227,7 +227,7 @@
                     android:backgroundTint="@color/black"
                     android:textSize="17dp"
 
-                    android:text="100C" />
+                    android:text="300C" />
             </LinearLayout>
 
 
